@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="aerovod">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Aerovod</title>
+
+        <!-- TODO : Common API -->
+        <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+        <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+
+        <!-- Assets - JS -->
+        <script language="javascript" type="text/javascript" src="assets/libs/angular.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/libs/angular-ui-router.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/Main.js"></script>
+
+        <!-- App -->
+        <script language="javascript" type="text/javascript" src="app/angular.module.js"></script>
+        <script language="javascript" type="text/javascript" src="app/angular.routes.js"></script>
+        <script language="javascript" type="text/javascript" src="app/components/catalogue/CatalogueController.js"></script>
+
+        <!-- Assets - CSS -->
+        <link rel="stylesheet" href="assets/css/Main.css" type="text/css">
+
+    </head>
+
+    <body onload="Main.onLoad();" onunload="Main.onUnload();" ng-controller="CatalogueController as catalogueCtrl">
+
+        <!-- Dummy anchor as focus for key events -->
+        <a href="javascript:void(0);" id="anchor" onkeydown="Main.keyDown();"></a>
+
+        <div ng-repeat="movie in mainCtrl.movies">
+            <div style="border:1px solid white; color:white; padding: 20px; margin: 20px;">
+                <h3>{{ movie.shortTitle }}</h3>
+                <p>{{ movie.description }}</p>
+            </div>
+        </div>
+
+        <!-- TODO: your code here -->
+    </body>
+</html>
