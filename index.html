@@ -16,23 +16,31 @@
         <!-- App -->
         <script language="javascript" type="text/javascript" src="app/angular.module.js"></script>
         <script language="javascript" type="text/javascript" src="app/angular.routes.js"></script>
-        <script language="javascript" type="text/javascript" src="app/components/catalogue/CatalogueController.js"></script>
-
+        <script language="javascript" type="text/javascript" src="app/components/movies/MovieService.js"></script>
+        <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogService.js"></script>
+        <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogController.js"></script>
+    
         <!-- Assets - CSS -->
         <link rel="stylesheet" href="assets/css/Main.css" type="text/css">
 
     </head>
 
-    <body onload="Main.onLoad();" onunload="Main.onUnload();" ng-controller="CatalogueController as catalogueCtrl">
-
+    <body onload="Main.onLoad();" onunload="Main.onUnload();" ng-controller="CatalogController as catalogCtrl">
+        
         <!-- Dummy anchor as focus for key events -->
         <a href="javascript:void(0);" id="anchor" onkeydown="Main.keyDown();"></a>
+        
+        <div class="window">
 
-        <div ng-repeat="movie in mainCtrl.movies">
-            <div style="border:1px solid white; color:white; padding: 20px; margin: 20px;">
-                <h3>{{ movie.shortTitle }}</h3>
-                <p>{{ movie.description }}</p>
+            <div ng-repeat="movie in catalogCtrl.movies">
+                <div style="border:1px solid white; color:white; padding: 20px; margin: 20px;">
+                    MOVIE
+                    <h3>{{ movie.title }}</h3>
+                    <p>{{ movie.description }}</p>
+                    <img ng-src="{{ movies.images[0] }}">
+                </div>
             </div>
+
         </div>
 
         <!-- TODO: your code here -->
