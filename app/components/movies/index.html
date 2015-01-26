@@ -1,0 +1,7 @@
+<div ng-repeat="movie in movies">
+	<div class="mvoie">
+		<h3>{{ movie.title }}</h3>
+		<p>{{ movie.description }}</p>
+		<img ng-src="{{ movie.media.images[0] }}">
+	</div>
+</div>

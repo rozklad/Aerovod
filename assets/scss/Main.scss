@@ -32,6 +32,26 @@ body {
 	font-size: 25px;
 }
 
+/* Loading */
+$loader-width: 128px;
+$loader-height: 128px;
+.loading {
+	position: absolute;
+	z-index: 51;
+	background-color: $background-color;
+	width: $width;
+	height: $height;
+	img {
+		width: $loader-width;
+		height: $loader-height;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -1 * $loader-width / 2;
+		margin-top: -1 * $loader-height / 2;
+	}
+}
+
 video {
 	z-index: 50;
 	position: absolute;

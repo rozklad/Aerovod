@@ -19,6 +19,22 @@ body {
   font-family: varelaround-regularcs, sans-serif;
   font-size: 25px; }
 
+/* Loading */
+.loading {
+  position: absolute;
+  z-index: 51;
+  background-color: #6e6e6e;
+  width: 1920px;
+  height: 1080px; }
+  .loading img {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -64px;
+    margin-top: -64px; }
+
 video {
   z-index: 50;
   position: absolute; }

@@ -1,0 +1,6 @@
+
+<ul class="menu">
+	<li ng-repeat="menuItem in menus" ui-sref-active="opened">
+		<a ui-sref="{{ menuItem.sref }}">{{ menuItem.title }}</a>
+	</li>
+</ul>

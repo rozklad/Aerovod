@@ -4,42 +4,51 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Aerovod</title>
 
-        <!-- TODO : Common API -->
+        <!-- Common API -->
         <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
         <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/Main.js"></script>
 
         <!-- Assets - JS -->
-        <script language="javascript" type="text/javascript" src="assets/libs/angular.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/libs/angular.js"></script>
+        <!--<script language="javascript" type="text/javascript" src="assets/libs/angular.min.js"></script> -->
         <script language="javascript" type="text/javascript" src="assets/libs/angular-ui-router.min.js"></script>
-        <script language="javascript" type="text/javascript" src="assets/js/Main.js"></script>
 
         <!-- App -->
         <script language="javascript" type="text/javascript" src="app/angular.module.js"></script>
         <script language="javascript" type="text/javascript" src="app/angular.routes.js"></script>
+        <script language="javascript" type="text/javascript" src="app/components/about/AboutService.js"></script>
         <script language="javascript" type="text/javascript" src="app/components/movies/MovieService.js"></script>
         <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogService.js"></script>
+
         <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogController.js"></script>
-    
+        <script language="javascript" type="text/javascript" src="app/components/movies/MovieController.js"></script>
+
+        <script language="javascript" type="text/javascript" src="app/shared/menu/menuDirective.js"></script>
+        
+
         <!-- Assets - CSS -->
         <link rel="stylesheet" href="assets/css/Main.css" type="text/css">
 
     </head>
+    
+    <!-- onload="Main.onLoad();" onunload="Main.onUnload();" -->
 
-    <body onload="Main.onLoad();" onunload="Main.onUnload();" ng-controller="CatalogController as catalogCtrl">
+    <body ng-controller="MainController as mainCtrl">
         
         <!-- Dummy anchor as focus for key events -->
         <a href="javascript:void(0);" id="anchor" onkeydown="Main.keyDown();"></a>
         
-        <div class="window">
+        <!-- Preloader -->
+        <div class="loading" ng-show="mainCtrl.loading"><img ng-src="assets/img/loader.gif"></div>
 
-            <div ng-repeat="movie in catalogCtrl.movies">
-                <div class="mvoie">
-                    <h3>{{ movie.title }}</h3>
-                    <p>{{ movie.description }}</p>
-                    <img ng-src="{{ movie.media.images[0] }}">
-                </div>
-            </div>
+        <!-- Main view -->
+        <div ng-hide="mainCtrl.loading" class="window">
+            
+            <menu></menu>
 
+            <div ui-view></div>
+            
         </div>
 
         <!-- TODO: your code here -->
