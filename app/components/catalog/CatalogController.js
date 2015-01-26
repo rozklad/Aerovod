@@ -2,11 +2,11 @@ app.controller('CatalogController', function($http, $log, Movie) {
 	
 	var vm = this; // vm contains viewmodel
 	
-	vm.movies = Movie.get()
-		.success(function(data){
-			return data.data;
+	Movie.get()
+		.success(function(response){
+			vm.movies = response.data;
 		})
-		.error(function(data){
-
+		.error(function(response){
+			// error
 		});
 });
