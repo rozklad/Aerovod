@@ -33,8 +33,7 @@
         <div class="window">
 
             <div ng-repeat="movie in catalogCtrl.movies">
-                <div style="border:1px solid white; color:white; padding: 20px; margin: 20px;">
-                    MOVIE
+                <div class="mvoie">
                     <h3>{{ movie.title }}</h3>
                     <p>{{ movie.description }}</p>
                     <img ng-src="{{ movie.media.images[0] }}">
