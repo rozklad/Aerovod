@@ -1,4 +1,4 @@
-app.controller('MainController', function($scope, $rootScope, Movie, $document){
+app.controller('MainController', function($scope, $rootScope, Movie, $document, $state){
 
     var vm = this; // vm stands for viewmodel
     
@@ -51,7 +51,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document){
             break;
             case tvKey.KEY_ENTER:
             case tvKey.KEY_PANEL_ENTER:
-                alert("ENTER");
+                vm.enter();
             break;
             default:
                 alert("Unhandled key");
@@ -75,6 +75,10 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document){
         $rootScope.$broadcast('right');
     };
 
+    vm.enter = function() {
+        $rootScope.$broadcast('enter');
+    };
+
     $scope.xposition = 0;
     $scope.activeMain = false;
     $scope.activeMovie = 0;
@@ -93,10 +97,6 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document){
         }
     });
 
-    $scope.$on('mainActivated', function() {
-        $scope.activeMain = true;
-    });
-
     $scope.$on('left', function() {
         // Navigate on xposition if main scope is active
         if ( $scope.activeMain ) {
@@ -110,10 +110,27 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document){
         }
     });
 
+    $scope.$on('mainActivated', function() {
+        $scope.activeMain = true;
+    });
+
     $scope.$on('mainDeactivated', function() {
         $scope.activeMain = false;
         $scope.xposition = 0;
         $scope.activeMovie = 0;
+    });
+
+    $scope.$on('enter', function(){
+
+        if ( $scope.activeMain && $scope.activeMovie > 0 ) {
+
+            var movie = $rootScope.movies[$scope.activeMovie - 1];
+            $state.go('movie.show', {id: movie['id_item']});
+
+        } else {
+
+        }
+
     });
 
     return vm;
