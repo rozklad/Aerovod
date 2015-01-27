@@ -151,6 +151,15 @@ a {
 .main .menu li.selected a {
   color: black; }
 
+.detail {
+  width: 1140px; }
+  .detail .movie-details {
+    position: absolute;
+    bottom: 0;
+    left: 70;
+    right: 70;
+    top: 500px; }
+
 /* modal */
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */

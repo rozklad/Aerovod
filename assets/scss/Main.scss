@@ -212,6 +212,16 @@ a {
 	}
 }
 
+.detail {
+	width: ($width - $sidebar-width - 2*70);
+	.movie-details {
+		position: absolute;
+		bottom: 0;
+		left: 70;
+		right: 70;
+		top: 500px;
+	}
+}
 
 /* modal */
 

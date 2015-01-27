@@ -1,4 +1,4 @@
-app.controller('MainController', function($scope, $rootScope, Movie, $document, $state){
+app.controller('MainController', function($scope, $rootScope, Movie, $document, $window, $state){
 
     var vm = this; // vm stands for viewmodel
     
@@ -34,7 +34,8 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         {
             case tvKey.KEY_RETURN:
             case tvKey.KEY_PANEL_RETURN:
-                alert("RETURN");
+                
+                vm.back();
                 widgetAPI.sendReturnEvent();
             break;
             case tvKey.KEY_LEFT:
@@ -77,6 +78,10 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
     vm.enter = function() {
         $rootScope.$broadcast('enter');
+    };
+
+    vm.back = function() {
+        $rootScope.$broadcast('back');
     };
 
     $scope.xposition = 0;
@@ -131,6 +136,11 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
         }
 
+    });
+
+    $scope.$on('back', function(){
+
+        $window.history.back();
     });
 
     return vm;
