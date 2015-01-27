@@ -54,7 +54,19 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
             case tvKey.KEY_PANEL_ENTER:
                 vm.enter();
             break;
+
+            case 71:
+                // play
+                vm.play();
+            break;
+
+            case 74:
+                // pause
+                vm.pause();
+            break;
+
             default:
+                alert($event.keyCode);
                 alert("Unhandled key");
             break;
         }
@@ -82,6 +94,10 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
     vm.back = function() {
         $rootScope.$broadcast('back');
+    };
+
+    vm.play = function() {
+        $rootScope.$broadcast('play');
     };
 
     $scope.xposition = 0;
@@ -136,6 +152,22 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
         }
 
+    });
+
+    $scope.$on('play', function(){
+
+        var video = document.getElementById("video");
+        alert(video);
+        //video.play();
+        sf.service.VideoPlayer.play({
+            url: "http://aerovod.multizone.cz/content/nettv/import/14352.mp4",
+            fullScreen: true    // Sets Player to partial mode
+        });
+    });
+
+    $scope.$on('pause', function(){
+
+        sf.service.VideoPlayer.stop();
     });
 
     $scope.$on('back', function(){

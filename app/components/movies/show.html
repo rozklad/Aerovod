@@ -1,11 +1,12 @@
 
 <div class="detail">
-	<video width="500" height="350" poster="{{ movie.media.images[movie.image_active] }}">
-		<source src="{{ movie.media.video }}" type="video/mp4"> 
+	<video id="video" width="100%" height="400" poster="{{ movie.media.images[movie.image_active] }}" controls>
+		<source src="{{ movie.media.video.high }}" type="video/mp4"> 
 	</video>
 	
 	<div class="movie-details">
 		<h3>{{ movie.title }}</h3>
 		<p>{{ movie.description }}</p>
+		{{ movie.media.video.high }}
 	</div>
 </div>

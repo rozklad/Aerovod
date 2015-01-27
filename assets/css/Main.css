@@ -159,6 +159,8 @@ a {
     left: 70;
     right: 70;
     top: 500px; }
+  .detail .video {
+    z-index: 52; }
 
 /* modal */
 .ng-modal-overlay {
