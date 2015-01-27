@@ -32,29 +32,8 @@ var app = angular.module('aerovod', ['ui.router'])
         // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/',
-            template: 'Dynamically resolved object'
+            templateUrl: 'app/components/movies/index.html',
         })
-
-})
-
-.controller('MainController', function($scope){
-
-    var vm = this; // vm stands for viewmodel
-
-    // LOADING ======================
-    // use $rootScope.$broadcast('loading'); to show data is loading
-    // use $rootScope.$broadcast('loaded'); to show data was loaded
-    // when loading = 0 (false), root loading "spinner" will dissapear
-    vm.loading = 0; 
-
-    $scope.$on('loading', function() {
-        vm.loading++;
-    });
-    $scope.$on('loaded', function() {
-        vm.loading--;
-    });
-
-    return vm;
 
 });
 

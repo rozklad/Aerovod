@@ -26,6 +26,7 @@ Main.enableKeys = function()
 Main.keyDown = function()
 {
 	var keyCode = event.keyCode;
+
 	alert("Key pressed: " + keyCode);
 
 	switch(keyCode)

@@ -1,0 +1,42 @@
+.uiview {
+    background: #333;
+}
+
+
+/*
+MENU
+*/
+.menu li {
+    line-height: 55px;
+}
+
+.menu li a{
+    color: #fff;
+ }
+
+/*
+MOVIES
+*/
+
+.movie {
+    position: relative;
+    height: 202px;
+    overflow: hidden;
+}
+
+.movie img {
+
+}
+
+.movie h3 {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 70px;
+   	margin: 0;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    font-size: 22px;
+    padding: 7px 10px;
+}

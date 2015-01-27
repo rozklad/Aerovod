@@ -1,12 +1,16 @@
 /* button color - #231f20 */
 /* pop up background - #e8e8e8 */
 
-$background-color: #6e6e6e;
+$background-color: #222;
 $selected-color: #ef4034;
 $focus-color: #bf1004;
 
 $width: 1920px;
 $height: 1080px;
+
+$bottom-bar-height: 64px;
+
+$sidebar-width: 640px;
 
 @font-face {
 	font-family: 'varelaround-regularcs';
@@ -52,6 +56,25 @@ $loader-height: 128px;
 	}
 }
 
+/* Movies list */
+.movie {
+	width: (($width - $sidebar-width - 2*70) / 3) - 20px;
+	margin: 10px;
+	float: left;
+	display: block;
+	box-sizing: border-box;
+	border: 2px solid transparent;
+
+	img { 
+		width: 100%;
+		height: auto;
+	}
+
+	&.focused {
+		border: 2px solid $focus-color;
+	}
+}
+
 video {
 	z-index: 50;
 	position: absolute;
@@ -84,11 +107,34 @@ video {
 }
 
 /* */
+.uibrand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 400px;
+    width: 640px;
+    background: url(../img/logo.png) transparent no-repeat 120px center;
+ }
+
+
+.uiview {
+    position: absolute;
+    top: 0;
+    left: 640px;
+    height: $height - $bottom-bar-height;
+    box-sizing: border-box;
+    padding: 70px;
+    p {
+	    padding: 20px 0;
+	}
+}
+
 
 .left-side-panel {
 	height: 1016px;
-}
+} 
 
+/*
 .logo {
 	position: absolute;
 	top: 110px;
@@ -100,6 +146,22 @@ video {
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 }
+*/
+
+a {
+	text-decoration: none;
+	color: #fff;
+	&.focused {
+		color: black;
+	}
+	&.selected {
+		color: $selected-color;
+	}
+
+	&.focused.selected {
+		color: $focus-color;
+	}
+}
 
 .menu {
 	list-style-type: none;
@@ -109,33 +171,89 @@ video {
 	width: 400px;
 	font-size: 150%;
 	font-weight: bold;
+	li {
+		display: block;
+		width: 400px;
+		height: 40px;
+		color: white;
+		margin-bottom: 40px;
+		line-height: 40px;
+		text-align: left;
+		text-transform: uppercase;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		letter-spacing: 0.05em;
+	
+		&.focused, &.focused a {
+			color: black;
+		}
+
+		&.selected, &.selected a {
+			color: $selected-color;
+		}
+
+		&.focused.selected, &.focus.selected a {
+			color: $focus-color;
+		}
+	}
+	
 }
 
-.menu li {
-	display: block;
-	width: 400px;
-	height: 40px;
-	color: white;
-	margin-bottom: 40px;
-	line-height: 40px;
-	text-align: left;
-	text-transform: uppercase;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	letter-spacing: 0.05em;
+.main {
+	.menu {
+		li {
+			&.selected {
+				a {
+					color: black;
+				}
+			}
+		}
+	}
 }
 
-.menu li.focused {
-	color: black;
-}
 
-.menu li.selected {
-	color: $selected-color;
-}
+/* modal */
 
-.menu li.focused.selected {
-	color: $focus-color;
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:52;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
 }
 
 /* bar */
@@ -146,7 +264,7 @@ video {
 	top: 1016px;
 	left: 0px;
 	width: $width;
-	height: 64px;
+	height: $bottom-bar-height;
 	background: black;
 	border-top: 1px solid #242424;
 	text-align: center;
@@ -156,8 +274,8 @@ video {
 	display: inline-block;
 	border-right: 1px solid #242424;
 	min-width: 245px;
-	height: 64px;
-	line-height: 64px;
+	height: $bottom-bar-height;
+	line-height: $bottom-bar-height;
 	text-align: left;
 	padding-right: 10px;
 }

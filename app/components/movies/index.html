@@ -1,7 +1,4 @@
-<div ng-repeat="movie in movies">
-	<div class="mvoie">
-		<h3>{{ movie.title }}</h3>
-		<p>{{ movie.description }}</p>
-		<img ng-src="{{ movie.media.images[0] }}">
-	</div>
-</div>
+<a ng-repeat="movie in movies" ui-sref="movie.show({id:movie.id_item})" class="movie" ng-class="{focused: $index+1 == activeMovie}">
+	<img ng-src="{{ movie.media.images[movie.image_active] }}">
+	<h3>{{ movie.title }}</h3>
+</a>
