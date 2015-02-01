@@ -32,48 +32,98 @@ app.navigation = {
                 // Return
                 Sanatorium.blockKeys();
                 self.back();
-                break;
+            break;
 
             case tvKey.KEY_LEFT:
 
                 // Left arrow
                 self.left();
-                break;
+            break;
 
             case tvKey.KEY_RIGHT:
 
                 // Right arrow
                 self.right();
-                break;
+            break;
 
             case tvKey.KEY_UP:
 
                 // Up arrow
                 self.up();
-                break;
+            break;
 
             case tvKey.KEY_DOWN:
 
                 // Down arrow
                 self.down();
-                break;
+            break;
 
             case tvKey.KEY_ENTER:
             case tvKey.KEY_PANEL_ENTER:
 
                 // Enter
                 self.enter();
-                break;
+            break;
 
             case tvKey.KEY_PLAY:
                 // Play
                 self.play();
-                break;
+            break;
 
             case tvKey.KEY_PAUSE:
                 // Pause
                 self.pause();
-                break;
+            break;
+
+            case 101:
+
+                self.number(1);
+            break;
+
+            case 98:
+
+                self.number(2);
+            break;
+
+            case 6:
+
+                self.number(3);
+            break;
+
+            case 8:
+
+                self.number(4);
+            break;
+
+            case 9:
+
+                self.number(5);
+            break;
+
+            case 10:
+
+                self.number(6);
+            break;
+
+            case 12:
+
+                self.number(7);
+            break;
+
+            case 13:
+
+                self.number(8);
+            break;
+
+            case 14:
+
+                self.number(9);
+            break;
+
+            case 17:
+
+                self.number(0);
+            break;
 
             case tvKey.KEY_STOP:
                 // Pause
@@ -110,7 +160,7 @@ app.navigation = {
 
             default:
                 alert("Unhandled key, code: "+$event.keyCode);
-                break;
+            break;
         }
     },
 
@@ -145,6 +195,7 @@ app.navigation = {
     pause: function() {
         this.$rootScope.$broadcast('pause');
     },
+
     stop: function() {
         this.$rootScope.$broadcast('stop');
     },
@@ -165,5 +216,9 @@ app.navigation = {
     rewind: function() {
         this.$rootScope.$broadcast('rewind');
     },
+
+    number: function(number) {
+        this.$rootScope.$broadcast('number', {number: number});
+    }
 
 };

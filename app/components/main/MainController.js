@@ -24,6 +24,12 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
             $rootScope.movies = data.data;
         });
 
+    // KEEP TRACK OF STATES ======
+    $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+        $rootScope.from = from;
+        $rootScope.fromParams = fromParams;
+    });
+
 
     // NAVIGATION ================
     var tvKey = new Sanatorium.KeyValues();
@@ -129,11 +135,9 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
     // go back to menu OR return to smartHUB (TV apps menu)
     $scope.$on('back', function(){
 
-        if ( $scope.activeMain ) {
-            $rootScope.$broadcast('mainDeactivated');
-        } else {
-           Sanatorium.exit();
-        }
+        $state.go($rootScope.from, $rootScope.fromParams);
+
+        //Sanatorium.exit();
 
     });
 

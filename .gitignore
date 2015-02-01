@@ -1,7 +1,5 @@
 .editorconfig
 sftp-config.json
 /node_modules
-<<<<<<< HEAD
-=======
 .editorconfig
->>>>>>> fe7b115376c8774a5ac6f2b255ac5a404fd9fcbc
+.DS_Store
