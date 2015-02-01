@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html ng-app="aerovod" ng-controller="MainController as mainCtrl">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Aerovod</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Aerovod</title>
 
-        <!-- Common API -->
-        <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
-        <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
-        <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/af/2.0.0/loader.js"></script>
-        <script language="javascript" type="text/javascript" src="assets/js/Main.js"></script>
+    <!-- Common API -->
+    <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+    <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+    <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/af/2.0.0/loader.js"></script>
 
-        <!-- Assets - JS -->
-        <script language="javascript" type="text/javascript" src="assets/libs/angular.js"></script>
-        <!--<script language="javascript" type="text/javascript" src="assets/libs/angular.min.js"></script> -->
-        <script language="javascript" type="text/javascript" src="assets/libs/angular-ui-router.min.js"></script>
+    <!-- Platform tools
+    <script language="javascript" type="text/javascript" src="assets/js/vendor/SmartTvApp.js"></script>-->
+    <script language="javascript" type="text/javascript" src="app/components/lib/SmartTv.Api.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/lib/SmartTv.Cookies.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/lib/SmartTv.FakeLocalStorage.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/lib/SmartTv.KeyValues.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/lib/SmartTv.NetworkMonitor.js"></script>
 
-        <!-- App -->
-        <script language="javascript" type="text/javascript" src="app/angular.module.js"></script>
-        <script language="javascript" type="text/javascript" src="app/angular.routes.js"></script>
-        <script language="javascript" type="text/javascript" src="app/components/about/AboutService.js"></script>
-        <script language="javascript" type="text/javascript" src="app/components/movies/MovieService.js"></script>
-        <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogService.js"></script>
+    <!-- Assets - JS -->
+    <script language="javascript" type="text/javascript" src="assets/libs/angular.js"></script>
+    <!--<script language="javascript" type="text/javascript" src="assets/libs/angular.min.js"></script> -->
+    <script language="javascript" type="text/javascript" src="assets/libs/angular-ui-router.min.js"></script>
 
-        <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogController.js"></script>
-        <script language="javascript" type="text/javascript" src="app/components/movies/MovieController.js"></script>
-        <script language="javascript" type="text/javascript" src="app/components/main/MainController.js"></script>
+    <!-- App -->
+    <script language="javascript" type="text/javascript" src="app/angular.module.js"></script>
+    <script language="javascript" type="text/javascript" src="app/angular.routes.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/about/AboutService.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/movies/MovieService.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogService.js"></script>
 
-        <script language="javascript" type="text/javascript" src="app/shared/menu/menuDirective.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogController.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/movies/MovieController.js"></script>
+    <script language="javascript" type="text/javascript" src="app/components/main/MainController.js"></script>
+
+    <script language="javascript" type="text/javascript" src="app/shared/menu/menuDirective.js"></script>
 
 
-        <!-- Assets - CSS -->
-        <link rel="stylesheet" href="assets/css/Main.css" type="text/css">
+    <!-- Assets - CSS -->
+    <link rel="stylesheet" href="assets/css/Main.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
 
-        <link rel="stylesheet" href="style.css" type="text/css">
+</head>
 
-    </head>
+<body>
 
-    <body onload="Main.onLoad();" onunload="Main.onUnload();">
+    <!-- Dummy anchor as focus for key events -->
+    <a href="javascript:void(0);" id="navigation" ng-keydown="mainCtrl.keyDown($event)"></a>
 
-        <!-- Dummy anchor as focus for key events -->
-        <a href="javascript:void(0);" id="anchor" ng-keydown="mainCtrl.keyDown($event)"></a>
+    <!-- Preloader -->
+    <div class="loading" ng-show="mainCtrl.loading"><img ng-src="assets/img/loader.gif"></div>
 
-        <!-- Preloader -->
-        <div class="loading" ng-show="mainCtrl.loading"><img ng-src="assets/img/loader.gif"></div>
-        
-        <!-- Main view -->
-        <div ng-hide="mainCtrl.loading" class="window" ng-class="{main: activeMain}">
+    <!-- Main view -->
+    <div ng-hide="mainCtrl.loading" class="window" ng-class="{main: activeMain}">
 
-            <div class="uibrand"></div>
-            
-            <menu></menu>
+        <div class="uibrand"></div>
 
-            <div ui-view class="uiview"></div>
+        <menu></menu>
 
-            <div id="bar">
+        <div ui-view class="uiview"></div>
 
-                <div>
-                    <img ng-src="assets/img/icons/icon-back.png"> Opustit aplikaci
-                </div>
-
+        <div id="bar">
+            <div>
+                <img ng-src="assets/img/icons/icon-back.png"> Zpět
             </div>
         </div>
+    </div>
 
-        <script type="text/javascript">
-            document.getElementById("anchor").focus();
-        </script>
-
-        <!-- TODO: your code here -->
-    </body>
+    <!-- TODO: your code here -->
+</body>
 </html>

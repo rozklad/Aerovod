@@ -1,12 +1,12 @@
 app.controller('MainController', function($scope, $rootScope, Movie, $document, $window, $state){
 
     var vm = this; // vm stands for viewmodel
-    
+
     // LOADING ======================
     // use $rootScope.$broadcast('loading'); to show data is loading
     // use $rootScope.$broadcast('loaded'); to show data was loaded
     // when loading = 0 (false), root loading "spinner" will dissapear
-    vm.loading = 0; 
+    vm.loading = 0;
 
     $scope.$on('loading', function() {
         vm.loading++;
@@ -26,7 +26,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
 
     // NAVIGATION ================
-    var tvKey = new Common.API.TVKeyValue();
+    var tvKey = new SmartTv.KeyValues();
 
     vm.keyDown = function($event) {
 
@@ -34,9 +34,8 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         {
             case tvKey.KEY_RETURN:
             case tvKey.KEY_PANEL_RETURN:
-                
+                widgetAPI.blockNavigation(event);
                 vm.back();
-                widgetAPI.sendReturnEvent();
             break;
             case tvKey.KEY_LEFT:
                 vm.left();
@@ -66,8 +65,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
             break;
 
             default:
-                alert($event.keyCode);
-                alert("Unhandled key");
+                alert("Unhandled key, code: "+$event.keyCode);
             break;
         }
     };
@@ -100,12 +98,16 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         $rootScope.$broadcast('play');
     };
 
+    vm.back = function() {
+        $rootScope.$broadcast('back');
+    };
+
     $scope.xposition = 0;
     $scope.activeMain = false;
     $scope.activeMovie = 0;
 
     $scope.$on('right', function() {
-        
+
         if ( $scope.xposition < $rootScope.movies.length + 1 ) {
             // Activate main area
             $rootScope.$broadcast('mainActivated');
@@ -156,13 +158,41 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
     $scope.$on('play', function(){
 
-        var video = document.getElementById("video");
-        alert(video);
-        //video.play();
+
+        var playerCbs = {
+            onStart:function() {
+                playerMenuCont.fadeOut(50);
+            },
+            onStop:function() {
+                playerMenuCont.fadeIn(50);
+            },
+            onTimeUpdate:function(curTime, duration) {
+                var cur = ref.parseTime(curTime);
+                var dur = ref.parseTime(duration);
+
+                progressTime.html(cur + " / " + dur);
+
+                var curPercent = (curTime / duration) * 100;
+                progressBarInner.css('width', curPercent + "%");
+            },
+            onVideoComplete:function() {
+                ref.deletePlayerOverlayHideTimer();
+                playerMenuCont.fadeIn(50);
+                ref.showPlayerOverlay();
+            }
+        };
+        player = new SmartTv.VideoPlayer(playerCont, playerCbs);
+
+
+/*        var myVideo = document.getElementById("high");
+
         sf.service.VideoPlayer.play({
-            url: "http://aerovod.multizone.cz/content/nettv/import/14352.mp4",
+            url: myVideo.src,
             fullScreen: true    // Sets Player to partial mode
         });
+*/
+
+
     });
 
     $scope.$on('pause', function(){
@@ -170,9 +200,15 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         sf.service.VideoPlayer.stop();
     });
 
+    // go back to menu OR return to smartHUB (TV apps menu)
     $scope.$on('back', function(){
 
-        $window.history.back();
+        if ( $scope.activeMain ) {
+            $rootScope.$broadcast('mainDeactivated');
+        } else {
+            widgetAPI.sendExitEvent();
+        }
+
     });
 
     return vm;
