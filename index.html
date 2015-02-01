@@ -7,7 +7,6 @@
         <!-- Common API -->
         <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
         <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
-        <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/af/2.0.0/loader.js"></script>
         <script language="javascript" type="text/javascript" src="assets/js/Main.js"></script>
 
         <!-- Assets - JS -->
@@ -40,7 +39,7 @@
     <body onload="Main.onLoad();" onunload="Main.onUnload();">
 
         <!-- TV navigation -->
-        <navigation></navigation>
+        <a href="javascript:void(0);" id="navigation" ng-keydown="mainCtrl.keyDown($event)"></a>
 
         <!-- Preloader -->
         <div class="loading" ng-show="mainCtrl.loading"><img ng-src="assets/img/loader.gif"></div>
@@ -63,6 +62,8 @@
             </div>
         </div>
 
-        <!-- TODO: your code here -->
+        <script type="text/javascript">
+            document.getElementById("navigation").focus();
+        </script>
     </body>
 </html>
