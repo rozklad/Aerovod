@@ -30,6 +30,8 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
     vm.keyDown = function($event) {
 
+        alert('keyCode: '+$event.keyCode);
+
         switch( $event.keyCode )
         {
             case tvKey.KEY_RETURN:
@@ -61,6 +63,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
             case 74:
                 // pause
+
                 vm.pause();
             break;
 
@@ -98,8 +101,8 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         $rootScope.$broadcast('play');
     };
 
-    vm.back = function() {
-        $rootScope.$broadcast('back');
+    vm.pause = function() {
+        $rootScope.$broadcast('pause');
     };
 
     $scope.xposition = 0;
@@ -157,19 +160,12 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
     });
 
     $scope.$on('play', function(){
-
-      var myVideo = document.getElementById("high");
-
-        sf.service.VideoPlayer.play({
-            url: myVideo.src,
-            fullScreen: true    // Sets Player to partial mode
-        });
-
+        $scope._video = document.getElementById("video");
+        $scope._video.play();
     });
 
     $scope.$on('pause', function(){
-
-        sf.service.VideoPlayer.stop();
+        $scope._video.pause();
     });
 
     // go back to menu OR return to smartHUB (TV apps menu)

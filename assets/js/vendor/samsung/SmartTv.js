@@ -5,13 +5,12 @@ var Sanatorium = {
 
 	init: function() {
 		alert('Init: '+Platform);
-		this.enableKeys();
 		widgetAPI.sendReadyEvent();
 	},
 
 	enableKeys: function()
 	{
-		document.getElementById('navigation').focus();
+		document.getElementById("navigation").focus();
 	},
 
 	blockKeys:function() {
