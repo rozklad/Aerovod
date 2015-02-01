@@ -1,16 +1,39 @@
+/* =====================================
+ * Essentials
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Essentials, basic colors
+ * ===================================== */
 /* button color - #231f20 */
 /* pop up background - #e8e8e8 */
+/* =====================================
+ * Font
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Font
+ * ===================================== */
 @font-face {
   font-family: 'varelaround-regularcs';
   src: url('../fonts/varelaround-regularcs.eot');
   src: url('../fonts/varelaround-regularcs.eot') format('embedded-opentype'), url('../fonts/varelaround-regularcs.woff') format('woff'), url('../fonts/varelaround-regularcs.ttf') format('truetype'); }
 
+/* =====================================
+ * Reset
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Reset
+ * ===================================== */
 * {
   padding: 0;
   margin: 0;
   border: 0; }
 
-/* Layout */
+/* =====================================
+ * Basic layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Basic layout, typography
+ * ===================================== */
 body {
   width: 1920px;
   height: 1080px;
@@ -19,7 +42,28 @@ body {
   font-family: varelaround-regularcs, sans-serif;
   font-size: 25px; }
 
-/* Loading */
+a {
+  text-decoration: none;
+  color: #fff; }
+  a.focused {
+    color: black; }
+  a.selected {
+    color: #ef4034; }
+  a.focused.selected {
+    color: #bf1004; }
+
+.window {
+  position: fixed;
+  width: 1920px;
+  height: 1016px;
+  background: #222; }
+
+/* =====================================
+ * Loading screen
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Loading screen
+ * ===================================== */
 .loading {
   position: absolute;
   z-index: 51;
@@ -35,47 +79,12 @@ body {
     margin-left: -64px;
     margin-top: -64px; }
 
-/* Movies list */
-.movie {
-  width: 360px;
-  margin: 10px;
-  float: left;
-  display: block;
-  box-sizing: border-box;
-  border: 2px solid transparent; }
-  .movie img {
-    width: 100%;
-    height: auto; }
-  .movie.focused {
-    border: 2px solid #bf1004; }
-
-video {
-  z-index: 50;
-  position: absolute; }
-
-.video-poster {
-  z-index: 51;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #8e8e8e;
-  background-image: none;
-  background-size: 100% 100%;
-  background-position: 50% 50%; }
-
-.video-overlay {
-  z-index: 60; }
-
-.window {
-  position: fixed;
-  width: 1920px;
-  height: 1016px;
-  background: #222; }
-
-.pop-window {
-  position: fixed; }
-
-/* */
+/* =====================================
+ * Sidebar layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Sidebar layout, brand, menu
+ * ===================================== */
 .uibrand {
   position: absolute;
   top: 0;
@@ -97,40 +106,17 @@ video {
 .left-side-panel {
   height: 1016px; }
 
-/*
-.logo {
-	position: absolute;
-	top: 110px;
-	left: 125px;
-	width: 266px;
-	height: 173px;
-	background-image: url('../../images/logo.png');
-	background-size: 266px 173px;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
-}
-*/
-a {
-  text-decoration: none;
-  color: #fff; }
-  a.focused {
-    color: black; }
-  a.selected {
-    color: #ef4034; }
-  a.focused.selected {
-    color: #bf1004; }
-
 .menu {
   list-style-type: none;
   position: absolute;
   top: 410px;
   left: 70px;
-  width: 400px;
+  width: 500px;
   font-size: 150%;
   font-weight: bold; }
   .menu li {
     display: block;
-    width: 400px;
+    width: 500px;
     height: 40px;
     color: white;
     margin-bottom: 40px;
@@ -151,16 +137,97 @@ a {
 .main .menu li.selected a {
   color: black; }
 
+/* =====================================
+ * Bottom bar
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Bottom bar, layout, icons
+ * ===================================== */
+#bar {
+  position: fixed;
+  color: white;
+  top: 1016px;
+  left: 0px;
+  width: 1920px;
+  height: 64px;
+  background: black;
+  border-top: 1px solid #242424;
+  text-align: center; }
+
+#bar div {
+  display: inline-block;
+  border-right: 1px solid #242424;
+  min-width: 245px;
+  height: 64px;
+  line-height: 64px;
+  text-align: left;
+  padding-right: 10px; }
+
+#bar div:first-child {
+  border-left: 1px solid #242424; }
+
+#bar div img {
+  height: 25px;
+  width: auto;
+  margin-right: 10px;
+  margin-left: 20px; }
+
+/* =====================================
+ * Movies list layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Movies list layout, movie listing
+ * behavior
+ * ===================================== */
+.movie {
+  width: 360px;
+  margin: 10px;
+  float: left;
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid transparent; }
+  .movie img {
+    width: 100%;
+    height: auto; }
+  .movie.focused {
+    border: 2px solid #bf1004; }
+
+/* =====================================
+ * Movie detail layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Movie detail layout, player
+ * ===================================== */
 .detail {
   width: 1140px; }
   .detail .movie-details {
     position: absolute;
     bottom: 0;
-    left: 70;
-    right: 70;
+    left: 70px;
+    right: 70px;
     top: 500px; }
   .detail .video {
     z-index: 52; }
+
+video {
+  z-index: 50;
+  position: absolute; }
+
+.video-poster {
+  z-index: 51;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #8e8e8e;
+  background-image: none;
+  background-size: 100% 100%;
+  background-position: 50% 50%; }
+
+.video-overlay {
+  z-index: 60; }
+
+.pop-window {
+  position: fixed; }
 
 /* modal */
 .ng-modal-overlay {
@@ -201,33 +268,3 @@ a {
   cursor: pointer;
   font-size: 120%;
   display: inline-block; }
-
-/* bar */
-#bar {
-  position: fixed;
-  color: white;
-  top: 1016px;
-  left: 0px;
-  width: 1920px;
-  height: 64px;
-  background: black;
-  border-top: 1px solid #242424;
-  text-align: center; }
-
-#bar div {
-  display: inline-block;
-  border-right: 1px solid #242424;
-  min-width: 245px;
-  height: 64px;
-  line-height: 64px;
-  text-align: left;
-  padding-right: 10px; }
-
-#bar div:first-child {
-  border-left: 1px solid #242424; }
-
-#bar div img {
-  height: 25px;
-  width: auto;
-  margin-right: 10px;
-  margin-left: 20px; }
