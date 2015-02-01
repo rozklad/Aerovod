@@ -6,11 +6,23 @@
  * ===================================== */
 /* button color - #231f20 */
 /* pop up background - #e8e8e8 */
+/* =====================================
+ * Font
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Font
+ * ===================================== */
 @font-face {
   font-family: 'varelaround-regularcs';
   src: url('../fonts/varelaround-regularcs.eot');
   src: url('../fonts/varelaround-regularcs.eot') format('embedded-opentype'), url('../fonts/varelaround-regularcs.woff') format('woff'), url('../fonts/varelaround-regularcs.ttf') format('truetype'); }
 
+/* =====================================
+ * Reset
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Reset
+ * ===================================== */
 * {
   padding: 0;
   margin: 0;

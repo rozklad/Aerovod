@@ -26,7 +26,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
 
     // NAVIGATION ================
-    var tvKey = new Common.API.TVKeyValue();
+    //var tvKey = new Common.API.TVKeyValue();
 
     vm.keyDown = function($event) {
 

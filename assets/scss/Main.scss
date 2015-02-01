@@ -29,6 +29,13 @@ $content-side-padding: $menu-side-padding;
 
 $gap: 10px;
 
+/* =====================================
+ * Font
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Font
+ * ===================================== */
+
 @font-face {
 	font-family: 'varelaround-regularcs';
 	src: url('../fonts/varelaround-regularcs.eot');
@@ -36,6 +43,13 @@ $gap: 10px;
 		 url('../fonts/varelaround-regularcs.woff') format('woff'),
 		 url('../fonts/varelaround-regularcs.ttf') format('truetype');
 }
+
+/* =====================================
+ * Reset
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Reset
+ * ===================================== */
 
 * {
 	padding: 0;
@@ -230,9 +244,10 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
  * Movies list layout, movie listing
  * behavior
  * ===================================== */
+
 .movie {
 	width: (($width - $sidebar-width - 2*70) / 3) - 20px;
-	margin: 10px;
+	margin: $gap;
 	float: left;
 	display: block;
 	box-sizing: border-box;

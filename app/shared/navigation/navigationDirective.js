@@ -3,17 +3,21 @@ app.directive('navigation', function(){
 	return {
 		restrict: 'E',
 		templateUrl: 'app/shared/navigation/navigationView.html',	// put out full qualified URL from index
+		link: function(scope, element, attrs){
+			element.children()[0].focus();
+		},
 		controller: function($scope) {
-			alert('ahoj');
+
 			//document.getElementById("navigation").focus();
 			/*
 			$scope.keyDown = function($event) {
 				alert("Unhandled key, code: "+ $event.keyCode);
 			};
 			*/
+			var vm = this;
 
-			$scope.ahoj = function() {
-				alert('ahoj ++');
+			vm.ahoj = function($event) {
+				alert('ahoj ++' + $event.keyCode);
 			};
 			/*
 			var vm = this;
