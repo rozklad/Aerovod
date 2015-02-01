@@ -28,78 +28,10 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
     // NAVIGATION ================
     var tvKey = new Sanatorium.KeyValues();
 
-    vm.keyDown = function($event) {
+    app.navigation.init(vm, $rootScope);    // Configures vm and $rootScope for navigation
 
-        switch( $event.keyCode )
-        {
-            case tvKey.KEY_RETURN:
-            case tvKey.KEY_PANEL_RETURN:
-                Sanatorium.blockKeys();
-                vm.back();
-            break;
-            case tvKey.KEY_LEFT:
-                vm.left();
-            break;
-            case tvKey.KEY_RIGHT:
-                vm.right();
-            break;
-            case tvKey.KEY_UP:
-                vm.up();
-            break;
-            case tvKey.KEY_DOWN:
-                vm.down();
-            break;
-            case tvKey.KEY_ENTER:
-            case tvKey.KEY_PANEL_ENTER:
-                vm.enter();
-            break;
-
-            case 71:
-                // play
-                vm.play();
-            break;
-
-            case 74:
-                // pause
-                vm.pause();
-            break;
-
-            default:
-                alert("Unhandled key, code: "+$event.keyCode);
-            break;
-        }
-    };
-
-    vm.up = function() {
-        $rootScope.$broadcast('up');
-    };
-
-    vm.down = function() {
-        $rootScope.$broadcast('down');
-    };
-
-    vm.left = function() {
-        $rootScope.$broadcast('left');
-    };
-
-    vm.right = function() {
-        $rootScope.$broadcast('right');
-    };
-
-    vm.enter = function() {
-        $rootScope.$broadcast('enter');
-    };
-
-    vm.back = function() {
-        $rootScope.$broadcast('back');
-    };
-
-    vm.play = function() {
-        $rootScope.$broadcast('play');
-    };
-
-    vm.back = function() {
-        $rootScope.$broadcast('back');
+    vm.keyDown = function($event) {         // Sends keydown event to navigation controller
+        app.navigation.keyDown($event);
     };
 
     $scope.xposition = 0;
