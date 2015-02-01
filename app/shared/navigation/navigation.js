@@ -148,7 +148,7 @@ app.navigation = {
                 self.mute();
                 break;
 
-           case tvKey.KEY_FF:
+            case tvKey.KEY_FF:
                 // Fast forward
                 self.fastforward();
                 break;
@@ -156,6 +156,27 @@ app.navigation = {
             case tvKey.KEY_RW:
                 // Rewind
                 self.rewind();
+                break;
+
+            case tvKey.KEY_RED:
+                alert('RED');
+                self.fullscreen();
+                break;
+
+            case tvKey.KEY_GREEN :
+                alert('GREEN');
+                break;
+
+            case tvKey.KEY_YELLOW:
+                alert('YELLOW');
+                break;
+
+            case tvKey.KEY_BLUE :
+                alert('BLUE');
+                break;
+
+            case tvKey.KEY_INFO :
+                alert('INFO key');
                 break;
 
             default:
@@ -215,6 +236,9 @@ app.navigation = {
     },
     rewind: function() {
         this.$rootScope.$broadcast('rewind');
+    },
+    fullscreen: function() {
+        this.$rootScope.$broadcast('fullscreen');
     },
 
     number: function(number) {
