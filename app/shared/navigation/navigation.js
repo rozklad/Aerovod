@@ -128,35 +128,35 @@ app.navigation = {
             case tvKey.KEY_STOP:
                 // Pause
                 self.stop();
-                break;
+            break;
 
             case tvKey.KEY_VOL_UP:
             case tvKey.KEY_PANEL_VOL_UP:
                 // Volume up
                 self.volumeUp();
-                break;
+            break;
 
             case tvKey.KEY_VOL_DOWN:
             case tvKey.KEY_PANEL_VOL_DOWN:
                 // Volume down
                 self.volumeDown();
-                break;
+            break;
 
             case tvKey.KEY_MUTE:
             case tvKey.KEY_PANEL_MUTE:
                 // Mute
                 self.mute();
-                break;
+            break;
 
            case tvKey.KEY_FF:
                 // Fast forward
                 self.fastforward();
-                break;
+            break;
 
             case tvKey.KEY_RW:
                 // Rewind
                 self.rewind();
-                break;
+            break;
 
             default:
                 alert("Unhandled key, code: "+$event.keyCode);
