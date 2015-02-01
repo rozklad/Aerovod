@@ -21,11 +21,12 @@
         <script language="javascript" type="text/javascript" src="app/components/about/AboutService.js"></script>
         <script language="javascript" type="text/javascript" src="app/components/movies/MovieService.js"></script>
         <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogService.js"></script>
-
+        
         <script language="javascript" type="text/javascript" src="app/components/catalog/CatalogController.js"></script>
         <script language="javascript" type="text/javascript" src="app/components/movies/MovieController.js"></script>
         <script language="javascript" type="text/javascript" src="app/components/main/MainController.js"></script>
 
+        <script language="javascript" type="text/javascript" src="app/shared/navigation/navigationDirective.js"></script>
         <script language="javascript" type="text/javascript" src="app/shared/menu/menuDirective.js"></script>
 
 
@@ -40,6 +41,8 @@
 
         <!-- Dummy anchor as focus for key events -->
         <a href="javascript:void(0);" id="anchor" ng-keydown="mainCtrl.keyDown($event)"></a>
+
+        <navigation></navigation>
 
         <!-- Preloader -->
         <div class="loading" ng-show="mainCtrl.loading"><img ng-src="assets/img/loader.gif"></div>
@@ -63,7 +66,7 @@
         </div>
 
         <script type="text/javascript">
-            document.getElementById("anchor").focus();
+            //document.getElementById("anchor").focus();
         </script>
 
         <!-- TODO: your code here -->

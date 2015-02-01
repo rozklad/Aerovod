@@ -4,10 +4,10 @@
   <cpname></cpname>
   <cplogo></cplogo>
   <cpauthjs></cpauthjs>
-  <ThumbIcon></ThumbIcon>
-  <BigThumbIcon></BigThumbIcon>
-  <ListIcon></ListIcon>
-  <BigListIcon></BigListIcon>
+  <ThumbIcon>assets/img/appicons/App_106.png</ThumbIcon>
+  <BigThumbIcon>assets/img/appicons/App_115.png</BigThumbIcon>
+  <ListIcon>assets/img/appicons/App_85.png</ListIcon>
+  <BigListIcon>assets/img/appicons/App_95.png</BigListIcon>
   <category></category>
   <autoUpdate>n</autoUpdate>
   <ver>0.100</ver>

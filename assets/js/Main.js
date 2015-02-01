@@ -20,7 +20,7 @@ Main.onUnload = function()
 
 Main.enableKeys = function()
 {
-	document.getElementById("anchor").focus();
+	//document.getElementById("anchor").focus();
 };
 
 Main.keyDown = function()
