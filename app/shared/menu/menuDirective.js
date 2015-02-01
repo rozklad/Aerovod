@@ -6,6 +6,8 @@ app.directive('menu', function(){
 		replace: true,
 		controller: function($scope, $state) {
 
+			// LIST OF MENU ITEMS ==========
+
 			$scope.menus = [
 				{
 					title : 'Aktuální filmy',

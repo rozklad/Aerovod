@@ -131,7 +131,7 @@ a {
       color: black; }
     .menu li.selected, .menu li.selected a {
       color: #ef4034; }
-    .menu li.focused.selected, .menu li.focus.selected a {
+    .menu li.focused.selected, .menu li.focus.selected a, .menu li:hover a {
       color: #bf1004; }
 
 .main .menu li.selected a {
@@ -189,7 +189,7 @@ a {
   .movie img {
     width: 100%;
     height: auto; }
-  .movie.focused {
+  .movie.focused, .movie:hover {
     border: 2px solid #bf1004; }
 
 /* =====================================

@@ -14,6 +14,7 @@
   <mgrver></mgrver>
   <fullwidget>y</fullwidget>
   <type>user</type>
+  <mouse itemtype="string">y</mouse>
   <srcctl>y</srcctl>
   <ticker>n</ticker>
   <childlock>n</childlock>

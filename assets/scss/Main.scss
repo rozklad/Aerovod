@@ -178,7 +178,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 			color: $selected-color;
 		}
 
-		&.focused.selected, &.focus.selected a {
+		&.focused.selected, &.focus.selected a, &:hover a {
 			color: $focus-color;
 		}
 	}
@@ -258,7 +258,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 		height: auto;
 	}
 
-	&.focused {
+	&.focused, &:hover {
 		border: 2px solid $focus-color;
 	}
 }
