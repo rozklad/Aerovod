@@ -107,7 +107,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('login.sign', {
             url: '',
-            templateUrl: 'app/components/login/index.html'
+            templateUrl: 'app/components/login/index.html',
+            controller: ['$scope', '$state', '$rootScope',
+                function( $scope, $state, $rootScope  ) {
+                    
+                    //$state.go($rootScope.from, $rootScope.fromParams);
+                }]
         });
 
 });

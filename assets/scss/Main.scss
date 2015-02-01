@@ -9,9 +9,13 @@
 /* pop up background - #e8e8e8 */
 
 $link-color: #fff;
-$background-color: #777;
+$background-color: #101010;
 $selected-color: #ef4034;
 $focus-color: #bf1004;
+
+$modal-bg: #aaa;
+$modal-color: #222;
+$overlay: #000;
 
 $width: 1920px;
 $height: 1080px;
@@ -99,7 +103,7 @@ $loader-width: 128px;
 $loader-height: 128px;
 .loading {
 	position: absolute;
-	z-index: 51;
+	z-index: 47;
 	background-color: $background-color;
 	width: $width;
 	height: $height;
@@ -222,7 +226,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 	min-width: 245px;
 	height: $bottom-bar-height;
 	line-height: $bottom-bar-height;
-	text-align: left;
+	text-align: center;
 	padding-right: 10px;
 }
 
@@ -235,6 +239,80 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 	width: auto;
 	margin-right: 10px;
 	margin-left: 20px;
+}
+
+/* =====================================
+ * Modal layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Modal layout
+ * ===================================== */
+
+.ng-modal {
+    position: fixed;
+    z-index: 49;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+}
+.ng-modal-overlay {
+    position: fixed;
+    z-index: 49;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+    background-color: $overlay;
+    opacity: 0.8;
+}
+.ng-modal-dialog {
+    z-index: 50;
+    position: fixed;
+    top: $height/3;
+    left: $width/3;
+    width: $width/3;
+    background-color: $modal-bg;
+    color: $modal-color;
+    text-align: center;
+    input {
+        border: 2px solid $modal-color;
+        background-color: lighten($modal-bg, 20%);
+        height: 2em;
+        font-size: 200%;
+        margin: 0 auto;
+        padding: 5px 5%;
+        margin: 10%;
+        width: 70%;
+        &:focus {
+            border: 2px solid darken($modal-color, 20%);
+        }
+    }
+}
+.ng-modal-dialog-content {
+    overflow: hidden;
+    height: 100%;
+}
+.ng-modal-close {
+    position: fixed;
+    top: 3px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 120%;
+    padding: 5px;
+    display: inline-block;
+}
+.ng-modal-close-x {
+
+}
+.ng-modal-title {
+    text-align: center;
+    font-size: 200%;
+    display: block;
+    margin-bottom: $gap;
+    padding-top: $gap;
+    padding-bottom: $gap;
+    color: $modal-color;
 }
 
 /* =====================================
@@ -313,47 +391,4 @@ video {
 
 
 
-
-/* modal */
-
-.ng-modal-overlay {
-  /* A dark translucent div that covers the whole screen */
-  position:absolute;
-  z-index:52;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-color:#000000;
-  opacity: 0.8;
-}
-.ng-modal-dialog {
-  /* A centered div above the overlay with a box shadow. */
-  z-index:10000;
-  position: absolute;
-  width: 50%; /* Default */
-
-  /* Center the dialog */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-
-  background-color: #fff;
-  box-shadow: 4px 4px 80px #000;
-}
-.ng-modal-dialog-content {
-  padding:10px;
-  text-align: left;
-}
-.ng-modal-close {
-  position: absolute;
-  top: 3px;
-  right: 5px;
-  padding: 5px;
-  cursor: pointer;
-  font-size: 120%;
-  display: inline-block;
-}
 
