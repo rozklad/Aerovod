@@ -53,11 +53,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'app/components/movies/show.html', // this will be injected into parent's (view.html) ui-view
             resolve: {
                 movie: ['Movie', '$stateParams', '$rootScope', function(Movie, $stateParams, $rootScope) {
-                    
+
                     var movies = $rootScope.movies;
 
                     // todo: reload
-                    
+
                     for ( var key in movies ) {
                         if ( movies[key]['id_item'] == $stateParams.id ) {
                             return movies[key];
@@ -65,9 +65,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     }
                 }]
             },
-            controller: function ($scope, movie) {
+            controller: function ($scope, movie, $rootScope) {
 
                 $scope.movie = movie;
+
+                alert('Before init fired');
+                $rootScope.Player = Sanatorium.VideoPlayer;
+                $rootScope.Player.init(document.getElementById("video"));
             }
         })
 
@@ -83,7 +87,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'app/components/catalog/index.html', // this will be injected into parent's (view.html) ui-view
             resolve: {
                 movies: ['Movie', '$stateParams', '$rootScope', function(Movie, $stateParams, $rootScope) {
-                    
+
                     $rootScope.$broadcast('loading');
                     return Movie.get()
                         .success(function(data){

@@ -88,14 +88,43 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
     });
 
+    $scope.$on('canplay', function(){
+        alert('We can play from controller');
+    });
+
     $scope.$on('play', function(){
-        $scope._video = document.getElementById("video");
-        $scope._video.play();
+        //$scope._video = document.getElementById("video");
+        $rootScope.Player.play();
     });
 
     $scope.$on('pause', function(){
-        $scope._video.pause();
+        $rootScope.Player.pause();
     });
+
+    $scope.$on('stop', function(){
+        $rootScope.Player.stop();
+    });
+
+    $scope.$on('volumeUp', function(){
+        $rootScope.Player.volumeUp();
+    });
+
+    $scope.$on('volumeDown', function(){
+        $rootScope.Player.volumeDown();
+    });
+
+    $scope.$on('mute', function(){
+        $rootScope.Player.mute();
+    });
+
+    $scope.$on('fastforward', function(){
+        $rootScope.Player.fastforward();
+    });
+
+    $scope.$on('rewind', function(){
+        $rootScope.Player.rewind();
+    });
+
 
     // go back to menu OR return to smartHUB (TV apps menu)
     $scope.$on('back', function(){

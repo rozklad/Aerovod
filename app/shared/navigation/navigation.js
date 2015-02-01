@@ -65,14 +65,47 @@ app.navigation = {
                 self.enter();
                 break;
 
-            case 71:
+            case tvKey.KEY_PLAY:
                 // Play
                 self.play();
                 break;
 
-            case 74:
+            case tvKey.KEY_PAUSE:
                 // Pause
                 self.pause();
+                break;
+
+            case tvKey.KEY_STOP:
+                // Pause
+                self.stop();
+                break;
+
+            case tvKey.KEY_VOL_UP:
+            case tvKey.KEY_PANEL_VOL_UP:
+                // Volume up
+                self.volumeUp();
+                break;
+
+            case tvKey.KEY_VOL_DOWN:
+            case tvKey.KEY_PANEL_VOL_DOWN:
+                // Volume down
+                self.volumeDown();
+                break;
+
+            case tvKey.KEY_MUTE:
+            case tvKey.KEY_PANEL_MUTE:
+                // Mute
+                self.mute();
+                break;
+
+           case tvKey.KEY_FF:
+                // Fast forward
+                self.fastforward();
+                break;
+
+            case tvKey.KEY_RW:
+                // Rewind
+                self.rewind();
                 break;
 
             default:
@@ -111,6 +144,26 @@ app.navigation = {
 
     pause: function() {
         this.$rootScope.$broadcast('pause');
-    }
+    },
+    stop: function() {
+        this.$rootScope.$broadcast('stop');
+    },
+
+    volumeUp: function() {
+        this.$rootScope.$broadcast('volumeUp');
+    },
+    volumeDown: function() {
+        this.$rootScope.$broadcast('volumeDown');
+    },
+
+    mute: function() {
+        this.$rootScope.$broadcast('mute');
+    },
+    fastforward: function() {
+        this.$rootScope.$broadcast('fastforward');
+    },
+    rewind: function() {
+        this.$rootScope.$broadcast('rewind');
+    },
 
 };

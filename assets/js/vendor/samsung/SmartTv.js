@@ -1,5 +1,6 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
+var pluginAPI = new Common.API.Plugin();
 
 var Sanatorium = {
 
