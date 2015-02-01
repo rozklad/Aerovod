@@ -26,7 +26,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
 
     // NAVIGATION ================
-    var tvKey = new SmartTv.KeyValues();
+    var tvKey = new Sanatorium.KeyValues();
 
     vm.keyDown = function($event) {
 
@@ -34,7 +34,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         {
             case tvKey.KEY_RETURN:
             case tvKey.KEY_PANEL_RETURN:
-                widgetAPI.blockNavigation(event);
+                Sanatorium.blockKeys();
                 vm.back();
             break;
             case tvKey.KEY_LEFT:
@@ -158,40 +158,12 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
     $scope.$on('play', function(){
 
-
-        var playerCbs = {
-            onStart:function() {
-                playerMenuCont.fadeOut(50);
-            },
-            onStop:function() {
-                playerMenuCont.fadeIn(50);
-            },
-            onTimeUpdate:function(curTime, duration) {
-                var cur = ref.parseTime(curTime);
-                var dur = ref.parseTime(duration);
-
-                progressTime.html(cur + " / " + dur);
-
-                var curPercent = (curTime / duration) * 100;
-                progressBarInner.css('width', curPercent + "%");
-            },
-            onVideoComplete:function() {
-                ref.deletePlayerOverlayHideTimer();
-                playerMenuCont.fadeIn(50);
-                ref.showPlayerOverlay();
-            }
-        };
-        player = new SmartTv.VideoPlayer(playerCont, playerCbs);
-
-
-/*        var myVideo = document.getElementById("high");
+      var myVideo = document.getElementById("high");
 
         sf.service.VideoPlayer.play({
             url: myVideo.src,
             fullScreen: true    // Sets Player to partial mode
         });
-*/
-
 
     });
 
@@ -206,7 +178,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         if ( $scope.activeMain ) {
             $rootScope.$broadcast('mainDeactivated');
         } else {
-            widgetAPI.sendExitEvent();
+           Sanatorium.exit();
         }
 
     });

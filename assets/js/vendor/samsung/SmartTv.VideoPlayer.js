@@ -219,5 +219,5 @@
 		return this._state;
 	};
 
-	SmartTv.VideoPlayer = VideoPlayer;
+	Sanatorium.VideoPlayer = VideoPlayer;
 })();

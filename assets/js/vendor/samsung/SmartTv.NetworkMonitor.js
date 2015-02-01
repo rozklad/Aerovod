@@ -31,5 +31,5 @@
 		setTimeout(checkConnection, 3000);
 	};
 
-	SmartTv.NetworkMonitor = NetworkMonitor;
+	Sanatorium.NetworkMonitor = NetworkMonitor;
 })();
