@@ -30,6 +30,16 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         $rootScope.fromParams = fromParams;
     });
 
+    // PASSWORD ==================
+    $rootScope.password = {
+        code: ''
+    };
+
+    $rootScope.$on('number', function(event, args){
+        var number = args.number;
+        $rootScope.password.code = $rootScope.password.code + args.number.toString();
+        alert($rootScope.password.code);
+    });
 
     // NAVIGATION ================
     var tvKey = new Sanatorium.KeyValues();

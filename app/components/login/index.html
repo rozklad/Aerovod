@@ -1,5 +1,5 @@
-<modal-dialog show="1" width="500px" dialog-title="Přihlášení" on-close="logClose()">
-    <input type="text" name="password" ng-model="password" autofocus>
+<modal-dialog show="1" width="500px" dialog-title="Přihlášení" on-close="logClose()" model="password" field="code">
+    <input type="text" name="password" ng-model="password[field]" autofocus>
 
     <button>Potvrdit</button>
 </modal-dialog>

@@ -30,7 +30,9 @@ app.directive('modalDialog', [
             scope: {
                 show: '=',
                 dialogTitle: '@',
-                onClose: '&?'
+                onClose: '&?',
+                model: '=',
+                field: '@'
             },
             replace: true,
             transclude: true,
@@ -51,10 +53,6 @@ app.directive('modalDialog', [
                 scope.hideModal = function() {
                     return scope.show = false;
                 };
-                scope.$on('number', function(event, args){
-                    var number = args.number;
-                    alert(args.number.toString());
-                });
                 scope.$watch('show', function(newVal, oldVal) {
                     if (newVal && !oldVal) {
                         document.getElementsByTagName("body")[0].style.overflow = "hidden";
