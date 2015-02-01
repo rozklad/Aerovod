@@ -141,6 +141,10 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         $rootScope.Player.rewind();
     });
 
+    $scope.$on('fullscreen', function(){
+        $rootScope.Player.fullscreen();
+    });
+
 
     // go back to menu OR return to smartHUB (TV apps menu)
     $scope.$on('back', function(){
