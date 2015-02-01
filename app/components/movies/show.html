@@ -1,15 +1,18 @@
 
 <div class="detail">
-<!-- 	<video id="video" width="100%" height="400" poster="{{ movie.media.images[movie.image_active] }}" controls>
-		<source id="high" src="{{ movie.media.video.high }}" type="video/mp4">
+
+ 	<video id="video" width="1140" poster="{{ movie.media.images[movie.image_active] }}" ng-src="{{ movie.media.video.high }}" type="video/mp4" style="position: absolute; z-index: 200;">
 	</video>
 
 	<div class="movie-details">
 		<h3>{{ movie.title }}</h3>
 		<p>{{ movie.description }}</p>
-		{{ movie.media.video.high }}
-	</div> -->
+		<p>{{ movie.media.video.high }}</p>
+	</div>
 
+</div>
+
+<!--
     <div id="video-player" data-src="{{ movie.media.video.high }}" >
         <div class="movie-player-poster"><img src="{{ movie.media.images[movie.image_active] }}" alt="~"></div>
         <div class="movie-player"></div>
@@ -25,5 +28,5 @@
     </div>
 </div>
 
-
+ -->
 

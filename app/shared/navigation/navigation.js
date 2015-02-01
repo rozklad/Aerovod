@@ -1,117 +1,115 @@
 app.navigation = {
 
-	vm: null,
-	$rootScope: null,
+    vm: null,
+    $rootScope: null,
 
-	/**
-	 * Sets viewmodel and $rootScope that shall
-	 * be used for navigation.
-	 * @param  {[type]} viewmodel  [description]
-	 * @param  {[type]} $rootScope [description]
-	 * @return {[type]}            [description]
-	 */
-	init: function(viewmodel, $rootScope) {
-		this.vm = viewmodel;
-		this.$rootScope = $rootScope;
-	},
+    /**
+     * Sets viewmodel and $rootScope that shall
+     * be used for navigation.
+     * @param  {[type]} viewmodel  [description]
+     * @param  {[type]} $rootScope [description]
+     * @return {[type]}            [description]
+     */
 
-	/**
-	 * Invoke actions upon keydown event.
-	 * @param  {[type]} $event [description]
-	 * @return {[type]}        [description]
-	 */
-	keyDown: function($event) {
+    init: function(viewmodel, $rootScope) {
+          this.vm = viewmodel;
+          this.$rootScope = $rootScope;
+      },
 
-		var self = this;
+    /**
+     * Invoke actions upon keydown event.
+     * @param  {[type]} $event [description]
+     * @return {[type]}        [description]
+     */
+    keyDown: function($event) {
 
-		switch( $event.keyCode )
-		{
-			case tvKey.KEY_RETURN:
-			case tvKey.KEY_PANEL_RETURN:
-				
-				// Return
-				Sanatorium.blockKeys();
-				self.back();
-			break;
+        var self = this;
 
-			case tvKey.KEY_LEFT:
+        switch( $event.keyCode )
+        {
+            case tvKey.KEY_RETURN:
+            case tvKey.KEY_PANEL_RETURN:
+                // Return
+                Sanatorium.blockKeys();
+                self.back();
+                break;
 
-				// Left arrow
-				self.left();
-			break;
+            case tvKey.KEY_LEFT:
 
-			case tvKey.KEY_RIGHT:
+                // Left arrow
+                self.left();
+                break;
 
-				// Right arrow
-				self.right();
-			break;
+            case tvKey.KEY_RIGHT:
 
-			case tvKey.KEY_UP:
+                // Right arrow
+                self.right();
+                break;
 
-				// Up arrow
-				self.up();
-			break;
+            case tvKey.KEY_UP:
 
-			case tvKey.KEY_DOWN:
+                // Up arrow
+                self.up();
+                break;
 
-				// Down arrow
-				self.down();
-			break;
+            case tvKey.KEY_DOWN:
 
-			case tvKey.KEY_ENTER:
-			case tvKey.KEY_PANEL_ENTER:
+                // Down arrow
+                self.down();
+                break;
 
-				// Enter
-				self.enter();
-			break;
+            case tvKey.KEY_ENTER:
+            case tvKey.KEY_PANEL_ENTER:
 
-			case 71:
+                // Enter
+                self.enter();
+                break;
 
+            case 71:
                 // Play
                 self.play();
-            break;
+                break;
 
             case 74:
-
                 // Pause
                 self.pause();
-            break;
+                break;
 
             default:
                 alert("Unhandled key, code: "+$event.keyCode);
-            break;
+                break;
         }
     },
 
-	up: function() {
+    up: function() {
         this.$rootScope.$broadcast('up');
     },
 
-	down: function() {
+    down: function() {
         this.$rootScope.$broadcast('down');
     },
 
-	left: function() {
+    left: function() {
         this.$rootScope.$broadcast('left');
     },
 
-	right: function() {
+    right: function() {
         this.$rootScope.$broadcast('right');
     },
 
-	enter: function() {
+    enter: function() {
         this.$rootScope.$broadcast('enter');
     },
 
-	back: function() {
+    back: function() {
         this.$rootScope.$broadcast('back');
     },
 
-	play: function() {
+    play: function() {
         this.$rootScope.$broadcast('play');
     },
 
-	pause: function() {
+    pause: function() {
         this.$rootScope.$broadcast('pause');
     }
 

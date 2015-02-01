@@ -89,19 +89,12 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
     });
 
     $scope.$on('play', function(){
-
-      var myVideo = document.getElementById("high");
-
-        sf.service.VideoPlayer.play({
-            url: myVideo.src,
-            fullScreen: true    // Sets Player to partial mode
-        });
-
+        $scope._video = document.getElementById("video");
+        $scope._video.play();
     });
 
     $scope.$on('pause', function(){
-
-        sf.service.VideoPlayer.stop();
+        $scope._video.pause();
     });
 
     // go back to menu OR return to smartHUB (TV apps menu)

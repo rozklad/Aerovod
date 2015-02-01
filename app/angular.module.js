@@ -1,7 +1,8 @@
 var app = angular.module('aerovod', ['ui.router'])
 
-.config(function($httpProvider) {
+.config(function($httpProvider, $sceProvider) {
 
+                $sceProvider.enabled(false);
 	$httpProvider.defaults.useXDomain = true;
 	delete $httpProvider.defaults.headers.common["X-Requested-With"];
 	$httpProvider.defaults.headers.common["Accept"] = "application/json";
@@ -28,7 +29,7 @@ var app = angular.module('aerovod', ['ui.router'])
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
-        
+
         // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/',
