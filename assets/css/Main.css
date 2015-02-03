@@ -272,7 +272,9 @@ a {
     bottom: 0;
     left: 70px;
     right: 70px;
-    top: 500px; }
+    top: 510px;
+    height: 506px;
+    overflow-y: auto; }
   .detail .video {
     z-index: 52; }
 

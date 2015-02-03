@@ -51,7 +51,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
     };
 
     $scope.xposition = 0;
-    $scope.activeMain = false;
+    $rootScope.activeMain = false;
     $scope.activeMovie = 0;
 
     $scope.$on('right', function() {
@@ -62,7 +62,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
         }
 
         // Navigate on xposition if main scope is active
-        if ( $scope.activeMain && $scope.xposition < $rootScope.movies.length ) {
+        if ( $rootScope.activeMain && $scope.xposition < $rootScope.movies.length ) {
             $scope.xposition++;
             $scope.activeMovie++;
         }
@@ -70,7 +70,7 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
 
     $scope.$on('left', function() {
         // Navigate on xposition if main scope is active
-        if ( $scope.activeMain ) {
+        if ( $rootScope.activeMain ) {
             $scope.xposition--;
             $scope.activeMovie--;
         }
@@ -82,18 +82,18 @@ app.controller('MainController', function($scope, $rootScope, Movie, $document, 
     });
 
     $scope.$on('mainActivated', function() {
-        $scope.activeMain = true;
+        $rootScope.activeMain = true;
     });
 
     $scope.$on('mainDeactivated', function() {
-        $scope.activeMain = false;
+        $rootScope.activeMain = false;
         $scope.xposition = 0;
         $scope.activeMovie = 0;
     });
 
     $scope.$on('enter', function(){
 
-        if ( $scope.activeMain && $scope.activeMovie > 0 ) {
+        if ( $rootScope.activeMain && $scope.activeMovie > 0 ) {
 
             var movie = $rootScope.movies[$scope.activeMovie - 1];
             $state.go('movie.show', {id: movie['id_item']});
