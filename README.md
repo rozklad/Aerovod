@@ -2,7 +2,13 @@
 
 ## Installation
 
+### OS X & Linux
+
     sh install.sh
+
+### Win
+
+    install.cmd
 
 ## Workflow
 
