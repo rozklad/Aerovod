@@ -4,7 +4,7 @@ app.directive('menu', function(){
 		restrict: 'E',
 		templateUrl: 'app/shared/menu/menuView.html',	// put out full qualified URL from index
 		replace: true,
-		controller: function($scope, $state) {
+		controller: function($scope, $state, $rootScope) {
 
 			// LIST OF MENU ITEMS ==========
 
@@ -46,23 +46,27 @@ app.directive('menu', function(){
 			$scope.position = 0;
 
 			$scope.$on('down', function() {
-			    $scope.position++;
-			    if ( $scope.position > $scope.menus.length - 1 ) {
-					// If user scrolls down after last element
-					// return him up
-					$scope.position = 0;
-				}
-				$scope.$broadcast('positionChanged');
+                if ( !$rootScope.activeMain ) {
+    			    $scope.position++;
+    			    if ( $scope.position > $scope.menus.length - 1 ) {
+    					// If user scrolls down after last element
+    					// return him up
+    					$scope.position = 0;
+    				}
+    				$scope.$broadcast('positionChanged');
+                }
 			});
 
 			$scope.$on('up', function() {
-				$scope.position--;
-				if ( $scope.position < 0 ) {
-					// If user scrolls up before first element
-					// return him down
-					$scope.position = $scope.menus.length - 1;
-				}
-				$scope.$broadcast('positionChanged');
+                if ( !$rootScope.activeMain ) {
+    				$scope.position--;
+    				if ( $scope.position < 0 ) {
+    					// If user scrolls up before first element
+    					// return him down
+    					$scope.position = $scope.menus.length - 1;
+    				}
+    				$scope.$broadcast('positionChanged');
+                }
 			});
 
 			$scope.$on('positionChanged', function(){

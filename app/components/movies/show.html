@@ -4,9 +4,7 @@
  	<video id="video" class="video-embed" width="1140" height="641" poster="{{ movie.media.images[movie.image_active] }}" ng-src="{{ movie.media.video.high }}" type="video/mp4">
 	</video>
 
-
-
-	<div class="movie-details">
+	<div class="movie-details" id="movie-details">
 		<h3>{{ movie.title }}</h3>
 		<p>{{ movie.description }}</p>
 		<p>{{ movie.media.video.high }}</p>

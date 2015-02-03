@@ -68,10 +68,25 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: function ($scope, movie, $rootScope) {
 
                 $scope.movie = movie;
+                $rootScope.activeMain = true;
 
                 alert('Before init fired');
                 $rootScope.Player = Sanatorium.VideoPlayer;
                 $rootScope.Player.init(document.getElementById("video"));
+
+                var detail = document.getElementById('movie-details');
+
+                $rootScope.$on('down', function() {
+                    if ( $rootScope.activeMain ) {
+                        detail.scrollTop += 10;
+                    }
+                });
+
+                $rootScope.$on('up', function() {
+                    if ( $rootScope.activeMain ) {
+                        detail.scrollTop -= 10;
+                    }
+                });
             }
         })
 
