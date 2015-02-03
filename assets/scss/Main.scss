@@ -148,7 +148,7 @@ $loader-height: 128px;
 
 .left-side-panel {
 	height: $height - $bottom-bar-height;
-} 
+}
 
 $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 
@@ -173,7 +173,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 		text-overflow: ellipsis;
 		overflow: hidden;
 		letter-spacing: 0.05em;
-	
+
 		&.focused, &.focused a {
 			color: black;
 		}
@@ -186,7 +186,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 			color: $focus-color;
 		}
 	}
-	
+
 }
 
 .main {
@@ -331,7 +331,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 	box-sizing: border-box;
 	border: 2px solid transparent;
 
-	img { 
+	img {
 		width: 100%;
 		height: auto;
 	}
@@ -389,6 +389,24 @@ video {
 }
 
 
+/* =====================================
+ * Video player layout
+ * @ver 1.0.0 (2/2015)
+ * =====================================
+ * Video player object
+ * ===================================== */
 
+video.video-embed {
+    position: absolute;
+    top: 70px;
+    right: 70px;
+}
 
-
+video.video-fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9000;
+}

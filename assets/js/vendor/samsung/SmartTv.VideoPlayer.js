@@ -87,9 +87,9 @@ Sanatorium.VideoPlayer = {
     stop: function() {
         this.SRC.currentTime = 0;
         this.SRC.pause();
-        REF.PLAYING = false;
-        REF.PAUSED = false;
-        REF.STOPPED = true;
+        this.REF.PLAYING = false;
+        this.REF.PAUSED = false;
+        this.REF.STOPPED = true;
     },
 
     setVolume: function(volume){
@@ -131,16 +131,16 @@ Sanatorium.VideoPlayer = {
 
             alert('Fullscreen 100%');
 
-            this.SRC.width = 1920;
-            this.SRC.height = 1080;
+            this.SRC.classList.add("video-fullscreen");
+            this.SRC.classList.remove("video-embed");
 
             this.REF.FULLSCREEN = true;
         }else{
 
             alert('Fullscreen back');
 
-            this.SRC.width = 1140;
-            this.SRC.height = 641;
+            this.SRC.classList.add("video-embed");
+            this.SRC.classList.remove("video-fullscreen");
 
             this.REF.FULLSCREEN = false;
         }
