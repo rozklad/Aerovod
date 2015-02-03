@@ -4,6 +4,10 @@
 
     sh install.sh
 
+## Workflow
+
+    sh work.sh
+
 ## Dev dependencies
 
 * gulp
