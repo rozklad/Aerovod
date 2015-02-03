@@ -304,15 +304,25 @@ video {
  * =====================================
  * Video player object
  * ===================================== */
-video.video-embed {
+.video-player-box {
   position: absolute;
   top: 70px;
-  right: 70px; }
+  left: 70px;
+  width: 1140px;
+  height: 641px;
+  background-color: #F00;
+  z-index: 9000;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
 
-video.video-fullscreen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.video-player-box.fullscreen {
+  top: 0px;
+  left: -640px;
+  width: 1920px;
+  height: 1920px;
+  background-color: #06c;
   z-index: 9000; }
+
+.video-player-box .video-box {
+  position: relative; }

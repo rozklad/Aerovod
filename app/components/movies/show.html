@@ -1,8 +1,25 @@
+    <div class="video-player-box" id="video-player-box">
+
+        <div class="video-box">
+            <video id="video" width="1140" height="641" poster="{{ movie.media.images[movie.image_active] }}" ng-src="{{ movie.media.video.high }}" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-player-toolbar">
+
+            <div class="progressbar-wrap">
+                <div class="progressbar-inner"></div>
+            </div>
+
+            <div class="rewind">RW</div>
+            <div class="fastforward">FF</div>
+            <div class="timer">0:00:00 / 0:00:00</div>
+
+        </div>
+    </div>
+
 
 <div class="detail">
-
- 	<video id="video" class="video-embed" width="1140" height="641" poster="{{ movie.media.images[movie.image_active] }}" ng-src="{{ movie.media.video.high }}" type="video/mp4">
-	</video>
 
 	<div class="movie-details" id="movie-details">
 		<h3>{{ movie.title }}</h3>
@@ -11,22 +28,4 @@
 	</div>
 
 </div>
-
-<!--
-    <div id="video-player" data-src="{{ movie.media.video.high }}" >
-        <div class="movie-player-poster"><img src="{{ movie.media.images[movie.image_active] }}" alt="~"></div>
-        <div class="movie-player"></div>
-        <div class="video-overlay movie-player-overlay"></div>
-        <div class="movie-name">{{ movie.title }}</div>
-        <div class="player-menu-cont"></div>
-        <div class="button play-arrow play-trailer"></div>
-        <div class="button play-arrow play-movie"></div>
-        <div class="movie-player-controls"></div>
-        <div class="progress-bar"></div>
-        <div class="progress-bar-inner"></div>
-        <div class="progress-time">0:00:00 / 0:00:00</div>
-    </div>
-</div>
-
- -->
 

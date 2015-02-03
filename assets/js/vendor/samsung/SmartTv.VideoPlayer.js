@@ -12,6 +12,7 @@ Sanatorium.VideoPlayer = {
         STEP: 30,
         WIDTH: 0,
         HEIGHT: 0,
+        PLAYER: {},
     },
 
     SRC: false,
@@ -22,6 +23,8 @@ Sanatorium.VideoPlayer = {
         alert('Player INIT fired');
 
         pluginAPI.setOffScreenSaver();
+
+        this.REF.PLAYER = document.getElementById('video-player-box');
 
         var REF = this.REF;
         var SRC = this.SRC = video;
@@ -131,18 +134,24 @@ Sanatorium.VideoPlayer = {
 
             alert('Fullscreen 100%');
 
-            this.SRC.classList.add("video-fullscreen");
-            this.SRC.classList.remove("video-embed");
+            this.SRC.setAttribute("width", '1920');
+            this.SRC.setAttribute("height", '1080');
 
             this.REF.FULLSCREEN = true;
+
+            this.REF.PLAYER.setAttribute('class', 'video-player-box fullscreen');
+
+
         }else{
 
             alert('Fullscreen back');
 
-            this.SRC.classList.add("video-embed");
-            this.SRC.classList.remove("video-fullscreen");
+            this.SRC.setAttribute("width", '1140');
+            this.SRC.setAttribute("height", '641');
 
             this.REF.FULLSCREEN = false;
+
+            this.REF.PLAYER.setAttribute('class', 'video-player-box');
         }
     },
 
