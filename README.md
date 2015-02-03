@@ -1,9 +1,13 @@
 # Aerovod
 
+## Installation
+
+    sh install.sh
+
 ## Dev dependencies
 
-	npm install gulp
-	npm install gulp-sass
+* gulp
+* gulp-sass
 
 ## Gulp tasks
 
