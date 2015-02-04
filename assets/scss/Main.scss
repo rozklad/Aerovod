@@ -20,6 +20,12 @@ $overlay: #000;
 $width: 1920px;
 $height: 1080px;
 
+$videoThumbWidth: 1140px;
+$videoThumbHeight: 641px;
+
+$videoOffsetLeft: -640px;
+$videoOffsetTop: 0px;
+
 $bottom-bar-height: 64px;
 
 $sidebar-width: 640px;
@@ -148,7 +154,7 @@ $loader-height: 128px;
 
 .left-side-panel {
 	height: $height - $bottom-bar-height;
-} 
+}
 
 $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 
@@ -173,7 +179,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 		text-overflow: ellipsis;
 		overflow: hidden;
 		letter-spacing: 0.05em;
-	
+
 		&.focused, &.focused a {
 			color: black;
 		}
@@ -186,7 +192,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 			color: $focus-color;
 		}
 	}
-	
+
 }
 
 .main {
@@ -331,7 +337,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 	box-sizing: border-box;
 	border: 2px solid transparent;
 
-	img { 
+	img {
 		width: 100%;
 		height: auto;
 	}
@@ -358,7 +364,7 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 		right: $content-side-padding;
 		top: 500px + $gap;
         height: $height - 500px - $bottom-bar-height - $gap;
-        overflow-y: auto; 
+        overflow-y: auto;
 	}
 
 	.video {
@@ -391,6 +397,35 @@ video {
 }
 
 
+/* =====================================
+ * Video player layout
+ * @ver 1.0.0 (2/2015)
+ * =====================================
+ * Video player object
+ * ===================================== */
 
+.video-player-box {
+    position: absolute;
+    top: $menu-side-padding;
+    left: $menu-side-padding;
+    width: $videoThumbWidth;
+    height: $videoThumbHeight;
+    background-color: #F00;
+    z-index: 9000;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
+.video-player-box.fullscreen {
+    top: $videoOffsetTop;
+    left: $videoOffsetLeft;
+    width: $width;
+    height: $width;
+    background-color: #06c;
+    z-index: 9000;
+}
 
+.video-player-box .video-box {
+    position: relative;
+}

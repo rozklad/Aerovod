@@ -297,3 +297,32 @@ video {
 
 .pop-window {
   position: fixed; }
+
+/* =====================================
+ * Video player layout
+ * @ver 1.0.0 (2/2015)
+ * =====================================
+ * Video player object
+ * ===================================== */
+.video-player-box {
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  width: 1140px;
+  height: 641px;
+  background-color: #F00;
+  z-index: 9000;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.video-player-box.fullscreen {
+  top: 0px;
+  left: -640px;
+  width: 1920px;
+  height: 1920px;
+  background-color: #06c;
+  z-index: 9000; }
+
+.video-player-box .video-box {
+  position: relative; }
