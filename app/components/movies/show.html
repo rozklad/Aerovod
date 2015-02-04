@@ -6,6 +6,43 @@
 
 	<div class="movie-details" id="movie-details">
 		<h3>{{ movie.title }}</h3>
+        <table class="table table-meta">
+            <tbody summary="Movie detailed information">
+                <tr>
+                    <th>Zveřejněno</th>
+                    <td>{{ movie.date_public }}</td>
+                </tr>
+                <tr>
+                    <th>Režisér</th>
+                    <td>{{ movie.director }}</td>
+                </tr>
+                <tr>
+                    <th>Rok</th>
+                    <td>{{ movie.release_year }}</td>
+                </tr>
+                <tr>
+                    <th>Země</th>
+                    <td>{{ movie.country }}</td>
+                </tr>
+                <tr>
+                    <th>Délka</th>
+                    <td>{{ movie.length }} minut</td>
+                </tr>
+                <tr>
+                    <th>Zvuk</th>
+                    <td>{{ movie.version }}</td>
+                </tr>
+                <tr>
+                    <th>Titulky</th>
+                    <td>{{ movie.subtitle }}</td>
+                </tr>
+                <tr ng-show="movie.new">
+                    <td colspan="2">
+                        Novinka!
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 		<p>{{ movie.description }}</p>
 		<p>{{ movie.media.video.high }}</p>
 	</div>
