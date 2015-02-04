@@ -372,6 +372,14 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 	}
 }
 
+.table {
+    width: 100%;
+    clear: both;
+    th {
+        text-align: left;
+    }
+}
+
 video {
 	z-index: 50;
 	position: absolute;

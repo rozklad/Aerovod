@@ -278,6 +278,12 @@ a {
   .detail .video {
     z-index: 52; }
 
+.table {
+  width: 100%;
+  clear: both; }
+  .table th {
+    text-align: left; }
+
 video {
   z-index: 50;
   position: absolute; }
