@@ -1,5 +1,5 @@
 /* =====================================
- * Essentials
+ * Essentials - Panasonic
  * @ver 1.0.0 (1/2015)
  * =====================================
  * Essentials, basic colors
@@ -17,23 +17,23 @@ $modal-bg: #aaa;
 $modal-color: #222;
 $overlay: #000;
 
-$width: 1920px;
-$height: 1080px;
+$width: 1280px;
+$height: 800px;
 
-$videoThumbWidth: 1140px;
-$videoThumbHeight: 641px;
+$videoThumbWidth: 760px;
+$videoThumbHeight: 475px;
 
-$videoOffsetLeft: -640px;
+$videoOffsetLeft: -425px;
 $videoOffsetTop: 0px;
 
 $bottom-bar-height: 64px;
 
-$sidebar-width: 640px;
-$brand-height: 400px;
+$sidebar-width: 425px;
+$brand-height: 295px;
 
-$menu-side-padding: 70px;
-$menu-item-height: 40px;
-$menu-item-bottom-margin: 40px;
+$menu-side-padding: 45px;
+$menu-item-height: 20px;
+$menu-item-bottom-margin: 20px;
 
 $content-side-padding: $menu-side-padding;
 
@@ -47,11 +47,11 @@ $gap: 10px;
  * ===================================== */
 
 @font-face {
-	font-family: 'varelaround-regularcs';
-	src: url('../fonts/varelaround-regularcs.eot');
-	src: url('../fonts/varelaround-regularcs.eot') format('embedded-opentype'),
-		 url('../fonts/varelaround-regularcs.woff') format('woff'),
-		 url('../fonts/varelaround-regularcs.ttf') format('truetype');
+    font-family: 'varelaround-regularcs';
+    src: url('../fonts/varelaround-regularcs.eot');
+    src: url('../fonts/varelaround-regularcs.eot') format('embedded-opentype'),
+         url('../fonts/varelaround-regularcs.woff') format('woff'),
+         url('../fonts/varelaround-regularcs.ttf') format('truetype');
 }
 
 /* =====================================
@@ -62,9 +62,9 @@ $gap: 10px;
  * ===================================== */
 
 * {
-	padding: 0;
-	margin: 0;
-	border: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 /* =====================================
@@ -75,27 +75,27 @@ $gap: 10px;
  * ===================================== */
 
 body {
-	width: $width;
-	height: $height;
-	color: white;
-	background: $background-color;
-	font-family: varelaround-regularcs, sans-serif;
-	font-size: 25px;
+    width: $width;
+    height: $height;
+    color: white;
+    background: $background-color;
+    font-family: varelaround-regularcs, sans-serif;
+    font-size: 25px;
 }
 
 a {
-	text-decoration: none;
-	color: #fff;
-	&.focused { color: black; }
-	&.selected { color: $selected-color; }
-	&.focused.selected { color: $focus-color; }
+    text-decoration: none;
+    color: #fff;
+    &.focused { color: black; }
+    &.selected { color: $selected-color; }
+    &.focused.selected { color: $focus-color; }
 }
 
 .window {
-	position: fixed;
-	width: $width;
-	height: $height - $bottom-bar-height;
-	background: $background-color;
+    position: fixed;
+    width: $width;
+    height: $height - $bottom-bar-height;
+    background: $background-color;
 }
 
 /* =====================================
@@ -108,20 +108,20 @@ a {
 $loader-width: 128px;
 $loader-height: 128px;
 .loading {
-	position: absolute;
-	z-index: 47;
-	background-color: $background-color;
-	width: $width;
-	height: $height;
-	img {
-		width: $loader-width;
-		height: $loader-height;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin-left: -1 * $loader-width / 2;
-		margin-top: -1 * $loader-height / 2;
-	}
+    position: absolute;
+    z-index: 47;
+    background-color: $background-color;
+    width: $width;
+    height: $height;
+    img {
+        width: $loader-width;
+        height: $loader-height;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -1 * $loader-width / 2;
+        margin-top: -1 * $loader-height / 2;
+    }
 }
 
 /* =====================================
@@ -148,63 +148,63 @@ $loader-height: 128px;
     box-sizing: border-box;
     padding: 70px;
     p {
-	    padding: 20px 0;
-	}
+        padding: 20px 0;
+    }
 }
 
 .left-side-panel {
-	height: $height - $bottom-bar-height;
+    height: $height - $bottom-bar-height;
 }
 
 $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 
 .menu {
-	list-style-type: none;
-	position: absolute;
-	top: $brand-height + $gap;
-	left: $menu-side-padding;
-	width: $menu-inner-width;
-	font-size: 150%;
-	font-weight: bold;
-	li {
-		display: block;
-		width: $menu-inner-width;
-		height: $menu-item-height;
-		color: white;
-		margin-bottom: $menu-item-bottom-margin;
-		line-height: $menu-item-height;
-		text-align: left;
-		text-transform: uppercase;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		letter-spacing: 0.05em;
+    list-style-type: none;
+    position: absolute;
+    top: $brand-height + $gap;
+    left: $menu-side-padding;
+    width: $menu-inner-width;
+    font-size: 150%;
+    font-weight: bold;
+    li {
+        display: block;
+        width: $menu-inner-width;
+        height: $menu-item-height;
+        color: white;
+        margin-bottom: $menu-item-bottom-margin;
+        line-height: $menu-item-height;
+        text-align: left;
+        text-transform: uppercase;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        letter-spacing: 0.05em;
 
-		&.focused, &.focused a {
-			color: black;
-		}
+        &.focused, &.focused a {
+            color: black;
+        }
 
-		&.selected, &.selected a {
-			color: $selected-color;
-		}
+        &.selected, &.selected a {
+            color: $selected-color;
+        }
 
-		&.focused.selected, &.focus.selected a, &:hover a {
-			color: $focus-color;
-		}
-	}
+        &.focused.selected, &.focus.selected a, &:hover a {
+            color: $focus-color;
+        }
+    }
 
 }
 
 .main {
-	.menu {
-		li {
-			&.selected {
-				a {
-					color: black;
-				}
-			}
-		}
-	}
+    .menu {
+        li {
+            &.selected {
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
 }
 
 /* =====================================
@@ -215,36 +215,36 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
  * ===================================== */
 
 #bar {
-	position: fixed;
-	color: white;
-	top: $height - $bottom-bar-height;
-	left: 0px;
-	width: $width;
-	height: $bottom-bar-height;
-	background: black;
-	border-top: 1px solid #242424;
-	text-align: center;
+    position: fixed;
+    color: white;
+    top: $height - $bottom-bar-height;
+    left: 0px;
+    width: $width;
+    height: $bottom-bar-height;
+    background: black;
+    border-top: 1px solid #242424;
+    text-align: center;
 }
 
 #bar div {
-	display: inline-block;
-	border-right: 1px solid #242424;
-	min-width: 245px;
-	height: $bottom-bar-height;
-	line-height: $bottom-bar-height;
-	text-align: center;
-	padding-right: 10px;
+    display: inline-block;
+    border-right: 1px solid #242424;
+    min-width: 245px;
+    height: $bottom-bar-height;
+    line-height: $bottom-bar-height;
+    text-align: center;
+    padding-right: 10px;
 }
 
 #bar div:first-child {
-	border-left: 1px solid #242424;
+    border-left: 1px solid #242424;
 }
 
 #bar div img {
-	height: 25px;
-	width: auto;
-	margin-right: 10px;
-	margin-left: 20px;
+    height: 25px;
+    width: auto;
+    margin-right: 10px;
+    margin-left: 20px;
 }
 
 /* =====================================
@@ -330,21 +330,21 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
  * ===================================== */
 
 .movie {
-	width: (($width - $sidebar-width - 2*70) / 3) - 20px;
-	margin: $gap;
-	float: left;
-	display: block;
-	box-sizing: border-box;
-	border: 2px solid transparent;
+    width: (($width - $sidebar-width - 2*70) / 3) - 20px;
+    margin: $gap;
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid transparent;
 
-	img {
-		width: 100%;
-		height: auto;
-	}
+    img {
+        width: 100%;
+        height: auto;
+    }
 
-	&.focused, &:hover {
-		border: 2px solid $focus-color;
-	}
+    &.focused, &:hover {
+        border: 2px solid $focus-color;
+    }
 }
 
 /* =====================================
@@ -355,21 +355,21 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
  * ===================================== */
 
 .detail {
-	width: ($width - $sidebar-width - 2*$content-side-padding);
+    width: ($width - $sidebar-width - 2*$content-side-padding);
 
-	.movie-details {
-		position: absolute;
-		bottom: 0;
-		left: $content-side-padding;
-		right: $content-side-padding;
-		top: 500px + $gap;
+    .movie-details {
+        position: absolute;
+        bottom: 0;
+        left: $content-side-padding;
+        right: $content-side-padding;
+        top: 500px + $gap;
         height: $height - 500px - $bottom-bar-height - $gap;
         overflow-y: auto;
-	}
+    }
 
-	.video {
-		z-index: 52;
-	}
+    .video {
+        z-index: 52;
+    }
 }
 
 .table {
@@ -381,27 +381,27 @@ $menu-inner-width: $sidebar-width - (2*$menu-side-padding);
 }
 
 video {
-	z-index: 50;
-	position: absolute;
+    z-index: 50;
+    position: absolute;
 }
 
 .video-poster {
-	z-index: 51;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: #8e8e8e;
-	background-image: none;
-	background-size: 100% 100%;
-	background-position: 50% 50%;
+    z-index: 51;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #8e8e8e;
+    background-image: none;
+    background-size: 100% 100%;
+    background-position: 50% 50%;
 }
 
 .video-overlay {
-	z-index: 60;
+    z-index: 60;
 }
 
 .pop-window {
-	position: fixed;
+    position: fixed;
 }
 
 
@@ -423,6 +423,9 @@ video {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    .video-box {
+        position: relative;
+    }
 }
 
 .video-player-box.fullscreen {
@@ -432,8 +435,4 @@ video {
     height: $width;
     background-color: #06c;
     z-index: 9000;
-}
-
-.video-player-box .video-box {
-    position: relative;
 }

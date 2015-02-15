@@ -1,0 +1,438 @@
+/* =====================================
+ * Essentials - Samsung
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Essentials, basic colors
+ * ===================================== */
+
+/* button color - #231f20 */
+/* pop up background - #e8e8e8 */
+
+$link-color: #fff;
+$background-color: #101010;
+$selected-color: #ef4034;
+$focus-color: #bf1004;
+
+$modal-bg: #aaa;
+$modal-color: #222;
+$overlay: #000;
+
+$width: 1920px;
+$height: 1080px;
+
+$videoThumbWidth: 1140px;
+$videoThumbHeight: 641px;
+
+$videoOffsetLeft: -640px;
+$videoOffsetTop: 0px;
+
+$bottom-bar-height: 64px;
+
+$sidebar-width: 640px;
+$brand-height: 400px;
+
+$menu-side-padding: 70px;
+$menu-item-height: 40px;
+$menu-item-bottom-margin: 40px;
+
+$content-side-padding: $menu-side-padding;
+
+$gap: 10px;
+
+/* =====================================
+ * Font
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Font
+ * ===================================== */
+
+@font-face {
+	font-family: 'varelaround-regularcs';
+	src: url('../fonts/varelaround-regularcs.eot');
+	src: url('../fonts/varelaround-regularcs.eot') format('embedded-opentype'),
+		 url('../fonts/varelaround-regularcs.woff') format('woff'),
+		 url('../fonts/varelaround-regularcs.ttf') format('truetype');
+}
+
+/* =====================================
+ * Reset
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Reset
+ * ===================================== */
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+/* =====================================
+ * Basic layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Basic layout, typography
+ * ===================================== */
+
+body {
+	width: $width;
+	height: $height;
+	color: white;
+	background: $background-color;
+	font-family: varelaround-regularcs, sans-serif;
+	font-size: 25px;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+	&.focused { color: black; }
+	&.selected { color: $selected-color; }
+	&.focused.selected { color: $focus-color; }
+}
+
+.window {
+	position: fixed;
+	width: $width;
+	height: $height - $bottom-bar-height;
+	background: $background-color;
+}
+
+/* =====================================
+ * Loading screen
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Loading screen
+ * ===================================== */
+
+$loader-width: 128px;
+$loader-height: 128px;
+.loading {
+	position: absolute;
+	z-index: 47;
+	background-color: $background-color;
+	width: $width;
+	height: $height;
+	img {
+		width: $loader-width;
+		height: $loader-height;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -1 * $loader-width / 2;
+		margin-top: -1 * $loader-height / 2;
+	}
+}
+
+/* =====================================
+ * Sidebar layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Sidebar layout, brand, menu
+ * ===================================== */
+
+.uibrand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $brand-height;
+    width: $sidebar-width;
+    background: url(../img/logo.png) transparent no-repeat 120px center;
+}
+
+.uiview {
+    position: absolute;
+    top: 0;
+    left: $sidebar-width;
+    height: $height - $bottom-bar-height;
+    box-sizing: border-box;
+    padding: 70px;
+    p {
+	    padding: 20px 0;
+	}
+}
+
+.left-side-panel {
+	height: $height - $bottom-bar-height;
+}
+
+$menu-inner-width: $sidebar-width - (2*$menu-side-padding);
+
+.menu {
+	list-style-type: none;
+	position: absolute;
+	top: $brand-height + $gap;
+	left: $menu-side-padding;
+	width: $menu-inner-width;
+	font-size: 150%;
+	font-weight: bold;
+	li {
+		display: block;
+		width: $menu-inner-width;
+		height: $menu-item-height;
+		color: white;
+		margin-bottom: $menu-item-bottom-margin;
+		line-height: $menu-item-height;
+		text-align: left;
+		text-transform: uppercase;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		letter-spacing: 0.05em;
+
+		&.focused, &.focused a {
+			color: black;
+		}
+
+		&.selected, &.selected a {
+			color: $selected-color;
+		}
+
+		&.focused.selected, &.focus.selected a, &:hover a {
+			color: $focus-color;
+		}
+	}
+
+}
+
+.main {
+	.menu {
+		li {
+			&.selected {
+				a {
+					color: black;
+				}
+			}
+		}
+	}
+}
+
+/* =====================================
+ * Bottom bar
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Bottom bar, layout, icons
+ * ===================================== */
+
+#bar {
+	position: fixed;
+	color: white;
+	top: $height - $bottom-bar-height;
+	left: 0px;
+	width: $width;
+	height: $bottom-bar-height;
+	background: black;
+	border-top: 1px solid #242424;
+	text-align: center;
+}
+
+#bar div {
+	display: inline-block;
+	border-right: 1px solid #242424;
+	min-width: 245px;
+	height: $bottom-bar-height;
+	line-height: $bottom-bar-height;
+	text-align: center;
+	padding-right: 10px;
+}
+
+#bar div:first-child {
+	border-left: 1px solid #242424;
+}
+
+#bar div img {
+	height: 25px;
+	width: auto;
+	margin-right: 10px;
+	margin-left: 20px;
+}
+
+/* =====================================
+ * Modal layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Modal layout
+ * ===================================== */
+
+.ng-modal {
+    position: fixed;
+    z-index: 49;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+}
+.ng-modal-overlay {
+    position: fixed;
+    z-index: 49;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+    background-color: $overlay;
+    opacity: 0.8;
+}
+.ng-modal-dialog {
+    z-index: 50;
+    position: fixed;
+    top: $height/3;
+    left: $width/3;
+    width: $width/3;
+    background-color: $modal-bg;
+    color: $modal-color;
+    text-align: center;
+    input {
+        border: 2px solid $modal-color;
+        background-color: lighten($modal-bg, 20%);
+        height: 2em;
+        font-size: 200%;
+        margin: 0 auto;
+        padding: 5px 5%;
+        margin: 10%;
+        width: 70%;
+        &:focus {
+            border: 2px solid darken($modal-color, 20%);
+        }
+    }
+}
+.ng-modal-dialog-content {
+    overflow: hidden;
+    height: 100%;
+}
+.ng-modal-close {
+    position: fixed;
+    top: 3px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 120%;
+    padding: 5px;
+    display: inline-block;
+}
+.ng-modal-close-x {
+
+}
+.ng-modal-title {
+    text-align: center;
+    font-size: 200%;
+    display: block;
+    margin-bottom: $gap;
+    padding-top: $gap;
+    padding-bottom: $gap;
+    color: $modal-color;
+}
+
+/* =====================================
+ * Movies list layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Movies list layout, movie listing
+ * behavior
+ * ===================================== */
+
+.movie {
+	width: (($width - $sidebar-width - 2*70) / 3) - 20px;
+	margin: $gap;
+	float: left;
+	display: block;
+	box-sizing: border-box;
+	border: 2px solid transparent;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	&.focused, &:hover {
+		border: 2px solid $focus-color;
+	}
+}
+
+/* =====================================
+ * Movie detail layout
+ * @ver 1.0.0 (1/2015)
+ * =====================================
+ * Movie detail layout, player
+ * ===================================== */
+
+.detail {
+	width: ($width - $sidebar-width - 2*$content-side-padding);
+
+	.movie-details {
+		position: absolute;
+		bottom: 0;
+		left: $content-side-padding;
+		right: $content-side-padding;
+		top: 500px + $gap;
+        height: $height - 500px - $bottom-bar-height - $gap;
+        overflow-y: auto;
+	}
+
+	.video {
+		z-index: 52;
+	}
+}
+
+.table {
+    width: 100%;
+    clear: both;
+    th {
+        text-align: left;
+    }
+}
+
+video {
+	z-index: 50;
+	position: absolute;
+}
+
+.video-poster {
+	z-index: 51;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #8e8e8e;
+	background-image: none;
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+}
+
+.video-overlay {
+	z-index: 60;
+}
+
+.pop-window {
+	position: fixed;
+}
+
+
+/* =====================================
+ * Video player layout
+ * @ver 1.0.0 (2/2015)
+ * =====================================
+ * Video player object
+ * ===================================== */
+
+.video-player-box {
+    position: absolute;
+    top: $menu-side-padding;
+    left: $menu-side-padding;
+    width: $videoThumbWidth;
+    height: $videoThumbHeight;
+    background-color: #F00;
+    z-index: 9000;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    .video-box {
+        position: relative;
+    }
+}
+
+.video-player-box.fullscreen {
+    top: $videoOffsetTop;
+    left: $videoOffsetLeft;
+    width: $width;
+    height: $width;
+    background-color: #06c;
+    z-index: 9000;
+}

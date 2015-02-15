@@ -1,5 +1,5 @@
 /* =====================================
- * Essentials
+ * Essentials - Panasonic
  * @ver 1.0.0 (1/2015)
  * =====================================
  * Essentials, basic colors
@@ -35,8 +35,8 @@
  * Basic layout, typography
  * ===================================== */
 body {
-  width: 1920px;
-  height: 1080px;
+  width: 1280px;
+  height: 800px;
   color: white;
   background: #101010;
   font-family: varelaround-regularcs, sans-serif;
@@ -54,8 +54,8 @@ a {
 
 .window {
   position: fixed;
-  width: 1920px;
-  height: 1016px;
+  width: 1280px;
+  height: 736px;
   background: #101010; }
 
 /* =====================================
@@ -68,8 +68,8 @@ a {
   position: absolute;
   z-index: 47;
   background-color: #101010;
-  width: 1920px;
-  height: 1080px; }
+  width: 1280px;
+  height: 800px; }
   .loading img {
     width: 128px;
     height: 128px;
@@ -89,38 +89,38 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  height: 400px;
-  width: 640px;
+  height: 295px;
+  width: 425px;
   background: url(../img/logo.png) transparent no-repeat 120px center; }
 
 .uiview {
   position: absolute;
   top: 0;
-  left: 640px;
-  height: 1016px;
+  left: 425px;
+  height: 736px;
   box-sizing: border-box;
   padding: 70px; }
   .uiview p {
     padding: 20px 0; }
 
 .left-side-panel {
-  height: 1016px; }
+  height: 736px; }
 
 .menu {
   list-style-type: none;
   position: absolute;
-  top: 410px;
-  left: 70px;
-  width: 500px;
+  top: 305px;
+  left: 45px;
+  width: 335px;
   font-size: 150%;
   font-weight: bold; }
   .menu li {
     display: block;
-    width: 500px;
-    height: 40px;
+    width: 335px;
+    height: 20px;
     color: white;
-    margin-bottom: 40px;
-    line-height: 40px;
+    margin-bottom: 20px;
+    line-height: 20px;
     text-align: left;
     text-transform: uppercase;
     white-space: nowrap;
@@ -146,9 +146,9 @@ a {
 #bar {
   position: fixed;
   color: white;
-  top: 1016px;
+  top: 736px;
   left: 0px;
-  width: 1920px;
+  width: 1280px;
   height: 64px;
   background: black;
   border-top: 1px solid #242424;
@@ -183,25 +183,25 @@ a {
   z-index: 49;
   top: 0;
   left: 0;
-  width: 1920px;
-  height: 1080px; }
+  width: 1280px;
+  height: 800px; }
 
 .ng-modal-overlay {
   position: fixed;
   z-index: 49;
   top: 0;
   left: 0;
-  width: 1920px;
-  height: 1080px;
+  width: 1280px;
+  height: 800px;
   background-color: #000;
   opacity: 0.8; }
 
 .ng-modal-dialog {
   z-index: 50;
   position: fixed;
-  top: 360px;
-  left: 640px;
-  width: 640px;
+  top: 266.66667px;
+  left: 426.66667px;
+  width: 426.66667px;
   background-color: #aaa;
   color: #222;
   text-align: center; }
@@ -247,7 +247,7 @@ a {
  * behavior
  * ===================================== */
 .movie {
-  width: 360px;
+  width: 218.33333px;
   margin: 10px;
   float: left;
   display: block;
@@ -266,14 +266,14 @@ a {
  * Movie detail layout, player
  * ===================================== */
 .detail {
-  width: 1140px; }
+  width: 765px; }
   .detail .movie-details {
     position: absolute;
     bottom: 0;
-    left: 70px;
-    right: 70px;
+    left: 45px;
+    right: 45px;
     top: 510px;
-    height: 506px;
+    height: 226px;
     overflow-y: auto; }
   .detail .video {
     z-index: 52; }
@@ -312,23 +312,22 @@ video {
  * ===================================== */
 .video-player-box {
   position: absolute;
-  top: 70px;
-  left: 70px;
-  width: 1140px;
-  height: 641px;
+  top: 45px;
+  left: 45px;
+  width: 760px;
+  height: 475px;
   background-color: #F00;
   z-index: 9000;
   padding: 0;
   margin: 0;
   box-sizing: border-box; }
+  .video-player-box .video-box {
+    position: relative; }
 
 .video-player-box.fullscreen {
   top: 0px;
-  left: -640px;
-  width: 1920px;
-  height: 1920px;
+  left: -425px;
+  width: 1280px;
+  height: 1280px;
   background-color: #06c;
   z-index: 9000; }
-
-.video-player-box .video-box {
-  position: relative; }
