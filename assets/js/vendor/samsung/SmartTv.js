@@ -1,16 +1,16 @@
-var widgetAPI = new Common.API.Widget();
-var tvKey = new Common.API.TVKeyValue();
-var pluginAPI = new Common.API.Plugin();
-
-pluginAPI.unregistKey(tvKey.KEY_MENU);
-pluginAPI.unregistKey(tvKey.KEY_SOURCE);
-pluginAPI.unregistKey(147);
-
 var Sanatorium = {
+
+    widgetAPI:  new Common.API.Widget(),
+    tvKey: new Common.API.TVKeyValue(),
+    pluginAPI: new Common.API.Plugin(),
 
     init: function() {
         alert('Init: '+Platform);
-        widgetAPI.sendReadyEvent();
+
+        this.pluginAPI.unregistKey(this.tvKey.KEY_MENU);
+        this.pluginAPI.unregistKey(this.tvKey.KEY_SOURCE);
+        this.pluginAPI.unregistKey(147);
+        this.widgetAPI.sendReadyEvent();
     },
 
     enableKeys: function()
@@ -19,11 +19,11 @@ var Sanatorium = {
     },
 
     blockKeys:function() {
-        widgetAPI.blockNavigation(event);
+        this.widgetAPI.blockNavigation(event);
     },
 
     exit:function() {
-        widgetAPI.sendExitEvent(event);
+        this.widgetAPI.sendExitEvent(event);
     },
 
     onNetworkError:function() {

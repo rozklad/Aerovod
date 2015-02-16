@@ -24,6 +24,7 @@ app.navigation = {
     keyDown: function($event) {
 
         var self = this;
+        var tvKey = Sanatorium.tvKey;
 
         switch( $event.keyCode )
         {

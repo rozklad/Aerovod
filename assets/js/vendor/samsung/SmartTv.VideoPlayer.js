@@ -22,7 +22,7 @@ Sanatorium.VideoPlayer = {
 
         alert('Player INIT fired');
 
-        pluginAPI.setOffScreenSaver();
+        Sanatorium.pluginAPI.setOffScreenSaver();
 
         this.REF.PLAYER = document.getElementById('video-player-box');
 

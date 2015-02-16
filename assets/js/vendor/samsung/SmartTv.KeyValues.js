@@ -1,1 +1,5 @@
-Sanatorium.KeyValues = Common.API.TVKeyValue;
+Sanatorium.KeyValues = function(){};
+
+(function(){
+    Sanatorium.KeyValues = Common.API.TVKeyValue;
+});
